@@ -15,8 +15,9 @@ public class MasterMindBase {
 	résultat : un tableau de nb entiers égaux à val
     */
     public static int[] initTab(int nb, int val){
-
-        return new int[0];
+        int[] t = new int[nb];
+        Arrays.fill(t, val);
+        return t;
     }
 
     //______________________________________________
@@ -77,8 +78,13 @@ public class MasterMindBase {
 	résultat : vrai ssi t1 et t2 contiennent la même suite d'entiers
     */
     public static boolean sontEgaux(int[] t1, int[] t2){
-
-        return false;
+        boolean result = true;
+        for (int i=0; i<t1.length; i++){
+            if(t1[i]!=t2[i]){
+                result = false;
+            }
+        }
+        return result;
     }
 
     //______________________________________________
