@@ -14,7 +14,7 @@ public class MasterMindBase {
     /** pré-requis : nb >= 0
 	résultat : un tableau de nb entiers égaux à val
     */
-    public static int[] initTab(int nb, int val){
+    public static int[] initTab(int nb, int val){ //Fait
         int[] t = new int[nb];
         Arrays.fill(t, val);
         return t;
@@ -25,8 +25,7 @@ public class MasterMindBase {
     /** pré-requis : aucun
 	résultat : une copie de tab
     */
-    public static int[] copieTab(int[] tab){
-
+    public static int[] copieTab(int[] tab){ //Fait
         return tab;
     }
 
@@ -35,9 +34,18 @@ public class MasterMindBase {
     /** pré-requis : aucun
 	résultat : la liste des éléments de t entre parenthèses et séparés par des virgules
     */
-    public static String listElem(char[] t){
-
-        return null;
+    public static String listElem(char[] t){ //Fait
+        String result = "(";
+        for(int i=0; i<t.length-1; i++){
+            if (i>0){
+                result = result + "," + t[i];
+            } else {
+                result = result + t[i];
+            }
+        }
+        result = result + ")";
+        System.out.println(result);
+        return result;
     }
 
     //______________________________________________
@@ -77,7 +85,7 @@ public class MasterMindBase {
     /** pré-requis : t1.length = t2.length
 	résultat : vrai ssi t1 et t2 contiennent la même suite d'entiers
     */
-    public static boolean sontEgaux(int[] t1, int[] t2){
+    public static boolean sontEgaux(int[] t1, int[] t2){ //Fait
         boolean result = true;
         for (int i=0; i<t1.length; i++){
             if(t1[i]!=t2[i]){
@@ -355,7 +363,6 @@ public class MasterMindBase {
 	   Toute donnée incorrecte doit être re-saisie jusqu'à ce qu'elle soit correcte.
     */
     public static void main (String[] args){
-	
    
     } // fin main
 
