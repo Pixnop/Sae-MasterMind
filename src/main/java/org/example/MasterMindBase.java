@@ -88,7 +88,7 @@ public class MasterMindBase {
     public static boolean sontEgaux(int[] t1, int[] t2){ //Fait
         for (int i=0; i<t1.length; i++){
             if(t1[i]!=t2[i]){
-                return false;  //j'ai changé despi pour faire boucle partielle le prof il adore
+                return false;
             }
         }
         return true;
@@ -148,9 +148,14 @@ public class MasterMindBase {
 	résultat : le nombre d'éléments communs de cod1 et cod2 se trouvant au même indice
 	Par exemple, si cod1 = (1,0,2,0) et cod2 = (0,1,0,0) la fonction retourne 1 (le "0" à l'indice 3)
     */
-    public static int nbBienPlaces(int[] cod1,int[] cod2){
-
-        return 0;
+    public static int nbBienPlaces(int[] cod1,int[] cod2){ //TODO : je pense que il faut que ça retourne un tab (une string n'est pas utilisable par les autres fonctions)
+        String bonneplace="";
+        for(int i=0;i<cod1.length;i++){
+            if (cod1[i]==cod2[i]){
+                bonneplace=bonneplace+ "le \"" + cod1[i] + "\" à l'indice " + i + '\n';
+            }
+        }
+        return bonneplace;
     }
 
     //____________________________________________________________
