@@ -148,7 +148,7 @@ public class MasterMindBase {
 	résultat : le nombre d'éléments communs de cod1 et cod2 se trouvant au même indice
 	Par exemple, si cod1 = (1,0,2,0) et cod2 = (0,1,0,0) la fonction retourne 1 (le "0" à l'indice 3)
     */
-    public static int nbBienPlaces(int[] cod1,int[] cod2){
+    public static int nbBienPlaces(int[] cod1,int[] cod2){//fait
         int bonneplace=0;
         for(int i=0;i<cod1.length;i++){
             if (cod1[i]==cod2[i]){
