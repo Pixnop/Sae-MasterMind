@@ -22,14 +22,20 @@ public class MasterMindBaseTest {
 
     @Test
     public void testCopieTab() {
+        int[] verif = {1,2,3,4};
+        assertEquals(verif, MasterMindBase.copieTab(verif));
     }
 
     @Test
     public void testListElem() {
+        char[] verif = {'a','b','c','d'};
+        String result = "(a,b,c,d)";
+        assertEquals(result, MasterMindBase.listElem(verif));
     }
 
     @Test
     public void testPlusGrandIndice() {
+
     }
 
     @Test

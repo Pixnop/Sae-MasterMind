@@ -27,7 +27,7 @@ public class MasterMindBase {
     */
     public static int[] copieTab(int[] tab){ //Fait
         return tab;
-    }
+    } //fait
 
     //______________________________________________
     
@@ -36,7 +36,7 @@ public class MasterMindBase {
     */
     public static String listElem(char[] t){ //Fait
         String result = "(";
-        for(int i=0; i<t.length-1; i++){
+        for(int i=0; i<t.length; i++){
             if (i>0){
                 result = result + "," + t[i];
             } else {
