@@ -175,11 +175,11 @@ public class MasterMindBase {
 	résultat : le nombre d'éléments communs de cod1 et cod2, indépendamment de leur position
 	Par exemple, si cod1 = (1,0,2,0) et cod2 = (0,1,0,0) la fonction retourne 3 (2 "0" et 1 "1")
     */
-    public static int nbCommuns(int[] cod1,int[] cod2, int nbCouleurs){ //problème il retourne 6 lan
+    public static int nbCommuns(int[] cod1,int[] cod2, int nbCouleurs){ //problème il va passer plusieurs fois sur la meme valeur cod2
         int nbenCommuns=0;
         for (int i=0;i<cod1.length;i++){
-            for (int j=0;j<nbCouleurs;j++){
-                if (cod1[i] == cod2[j]) {
+            for (int j=0;j< cod1.length;j++){
+                if (cod1[i] == cod2[j]) { //la faut vérifier qu'il sarrete pas plusieurs fois au même endroit de cod2
                     nbenCommuns++;
                 }
             }
