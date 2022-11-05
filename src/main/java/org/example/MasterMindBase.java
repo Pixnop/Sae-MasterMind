@@ -185,7 +185,7 @@ public class MasterMindBase {
             for (int j=0;j<cod2bis.length;j++){
                 if (cod1[i] == cod2[j]) {
                     nbenCommuns++;
-                    cod2bis[j];
+                    cod2bis[j]=nbCouleurs+1;
                 }
             }
         }
