@@ -177,13 +177,13 @@ public class MasterMindBase {
     */
     public static int nbCommuns(int[] cod1,int[] cod2, int nbCouleurs){ //problème il va passer plusieurs fois sur la meme valeur cod2
         int nbenCommuns=0;
-        int [] cod2bis = new int[0];
+        int [] cod2bis = new int[cod2.length];
         for (int i=0; i<cod2.length;i++){
             cod2bis[i]=cod2[i];
         }
         for (int i=0;i<cod1.length;i++){
             for (int j=0;j<cod2bis.length;j++){
-                if (cod1[i] == cod2[j]) {
+                if (cod1[i] == cod2bis[j]) {
                     nbenCommuns++;
                     cod2bis[j]=nbCouleurs+1;
                 }
