@@ -85,8 +85,13 @@ public class MasterMindBase {
 	résultat : vrai ssi les éléments de t sont différents
 	stratégie : utilise la fonction plusGrandIndice
     */
-    public static boolean elemDiff(char[] t){
-
+    public static boolean elemDiff(char[] t){ //todo completur pour afficher doublon + indices
+        boolean result = false;
+        for(int i=0; i<t.length; i++){
+            if ((plusGrandIndice(t, t[i])) != -1){
+                result = true;
+            }
+        }
         return false;
     }
     
