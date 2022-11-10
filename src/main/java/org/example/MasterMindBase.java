@@ -69,8 +69,13 @@ public class MasterMindBase {
 	stratégie : utilise la fonction plusGrandIndice
     */
     public static boolean estPresent(char[] t, char c){
-
-        return false;
+        boolean result = false;
+        for(int i=0; i<t.length; i++){
+            if (t[i] == c){
+                result = true;
+            }
+        }
+        return result;
     }
 
     //______________________________________________
