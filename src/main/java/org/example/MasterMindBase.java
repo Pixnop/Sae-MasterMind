@@ -53,9 +53,14 @@ public class MasterMindBase {
     /** pré-requis : aucun
 	résultat : le plus grand indice d'une case de t contenant c s'il existe, -1 sinon
     */
-    public static int plusGrandIndice(char[] t, char c){
-
-        return 0;
+    public static int plusGrandIndice(char[] t, char c){ //Fait
+        int result = -1;
+        for(int i=0; i<t.length; i++){
+            if (t[i] == c){
+                result = i;
+            }
+        }
+        return result;
     }
     //______________________________________________
 
