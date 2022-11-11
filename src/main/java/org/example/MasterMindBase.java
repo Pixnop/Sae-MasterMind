@@ -211,9 +211,9 @@ public class MasterMindBase {
     
     /** pré-requis : cod1.length = cod2.length et les éléments de cod1 et cod2 sont des entiers de 0 à nbCouleurs-1
 	résultat : un tableau de 2 entiers contenant à l'indice 0 (resp. 1) le nombre d'éléments communs de cod1 et cod2
-	se trouvant  (resp. ne se trouvant pas) au même indice
-	Par exemple, si cod1 = (1,0,2,0) et cod2 = (0,1,0,0) la fonction retourne (1,2) : 1 bien placé (le "0" à l'indice 3) 
+	se trouvant  (resp. ne se trouvant pas) au même indiceien placé (le "0" à l'indice 3)
 	et 2 mal placés (1 "0" et 1 "1")
+     Par exemple, si cod1 = (1,0,2,0) et cod2 = (0,1,0,0) la fonction retourne (1,2) : 1 b
     */
     public static int[] nbBienMalPlaces(int[] cod1,int[] cod2, int nbCouleurs){
 
