@@ -181,23 +181,28 @@ public class MasterMindBase {
     */
     public static int[] tabFrequence(int[] cod, int nbCouleurs){
         int nbr=0;
-        int [] codbis = new int [nbCouleurs];
+        int [] codbis = new int [nbCouleurs];  // va
         for (int i=0; i<cod.length;i++){ //compte le nombre d'occurence de i dans cod
             nbr=nbr+cod[i];
             codbis[i]=cod[i];
         }
 
-        for(int i=0;i<cod.length/2;i++){  //met cod dans l'ordre décroissant
-            for (int j=0;j<cod.length/2;j++){
-                if (cod[j]>cod[i]){
-                    int imax=cod[j];
-                    cod[j]=cod[i];
-                    cod[i]=imax;
+        for(int i=0;i<codbis.length/2;i++){  //met codbis dans l'ordre décroissant
+            for (int j=0;j<codbis.length/2;j++){
+                if (cod[j]>codbis[i]){
+                    int imax=codbis[j];
+                    codbis[j]=codbis[i];
+                    codbis[i]=imax;
                 }
             }
         }
-
-
+        for(int i=0;i<cod.length-nbr;i++){ //va comparer le nbr d'occurrences de i dans cod au nombre voulu (cod.length) tant que celui ci est inférieur:
+            int j=0;
+            while (codbis[j]!=0){ // on remplace le prochain 0 de codbis par 1
+                j++;
+            }
+            codbis[j]=1;
+        }
         return codbis;
     }
 
