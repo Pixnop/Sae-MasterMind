@@ -180,13 +180,25 @@ public class MasterMindBase {
 	Par exemple, si cod = (1,0,2,0) et nbCouleurs = 6 la fonction retourne (2,1,1,0,0,0)
     */
     public static int[] tabFrequence(int[] cod, int nbCouleurs){
-        int imax=-1
-        for(int i=0;i<cod.length;i++){
-            if (cod[i]>imax && cod[i]!=){
+        int nbr=0;
+        int [] codbis = new int [nbCouleurs];
+        for (int i=0; i<cod.length;i++){ //compte le nombre d'occurence de i dans cod
+            nbr=nbr+cod[i];
+            codbis[i]=cod[i];
+        }
 
+        for(int i=0;i<cod.length/2;i++){  //met cod dans l'ordre décroissant
+            for (int j=0;j<cod.length/2;j++){
+                if (cod[j]>cod[i]){
+                    int imax=cod[j];
+                    cod[j]=cod[i];
+                    cod[i]=imax;
+                }
             }
         }
-        return cod;
+
+
+        return codbis;
     }
 
     //____________________________________________________________
