@@ -344,7 +344,7 @@ public class MasterMindBase {
      propositions de cod seraient les nbCoups premières réponses de rep resp.
      */
     public static boolean estCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){
-
+        return false; //jai rajouté
     }
 
     //___________________________________________________________________
@@ -360,7 +360,7 @@ public class MasterMindBase {
      sinon met dans cod1 le code ne contenant que des "0" et retourne faux
      */
     public static boolean passeCodeSuivantLexicoCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){
-
+    return false; //jai rajouté
     }
 
 

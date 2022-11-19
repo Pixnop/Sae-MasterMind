@@ -72,6 +72,10 @@ public class MasterMindBaseTest {
 
     @Test
     public void testTabFrequence() {
+        int[] vale1 = {0,2,1,0};
+        int nbdecouleur=5;
+        int [] result = {2,1,1,0,0};
+        assertEquals(result, MasterMindBase.tabFrequence(vale1,nbdecouleur));
     }
 
     @Test
