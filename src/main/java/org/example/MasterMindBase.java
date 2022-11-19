@@ -96,7 +96,7 @@ public class MasterMindBase {
         }
 
     }
-    
+
     //______________________________________________
 
     /** pré-requis : t1.length = t2.length
@@ -122,9 +122,10 @@ public class MasterMindBase {
 	résultat : un tableau de lgCode entiers choisis aléatoirement entre 0 et nbCouleurs-1
     */
     public static int[] codeAleat(int lgCode, int nbCouleurs){
-
+        int [] randomcode = new int[lgCode];
         for (int i=0; i<lgCode;i++){
-
+            Random r = new Random();
+            randomcode[i] = r.nextInt(nbCouleurs);  //nombre aléatoire de type int supérieure ou égal à 0 et inférieur au nombre entier passé en paramètre
         }
         return randomcode;
     }
@@ -136,7 +137,11 @@ public class MasterMindBase {
 	résultat : vrai ssi codMot est correct, c'est-à-dire de longueur lgCode et ne contenant que des éléments de tabCouleurs
     */
     public static boolean codeCorrect(String codMot, int lgCode, char[] tabCouleurs){
-
+        if (tabCouleurs.length!=lgCode){
+            System.out.print("la longueur de ton tableau n'est pas bonne");
+            return false;
+        }
+        if
         return false;
     }
    
