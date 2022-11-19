@@ -75,7 +75,7 @@ public class MasterMindBaseTest {
         int[] vale1 = {0,2,1,0};
         int nbdecouleur=5;
         int [] result = {2,1,1,0,0};
-        assertEquals(result, MasterMindBase.tabFrequence(vale1,nbdecouleur));
+        assertEquals( MasterMindBase.tabFrequence(vale1,nbdecouleur),result);
     }
 
     @Test
@@ -84,7 +84,7 @@ public class MasterMindBaseTest {
         int[] vale2 = {1,1,2,3};
         int nbdecouleur=4;
         int result=3;
-        assertEquals(result, MasterMindBase.nbCommuns(vale1,vale2,nbdecouleur));
+        assertEquals(MasterMindBase.nbCommuns(vale1,vale2,nbdecouleur),result);
     }
 
     @Test
