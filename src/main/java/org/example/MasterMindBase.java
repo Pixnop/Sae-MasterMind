@@ -26,8 +26,12 @@ public class MasterMindBase {
 	résultat : une copie de tab
     */
     public static int[] copieTab(int[] tab){ //Fait
-        return tab;
-    } //fait
+        int [] tabcopie= new int[tab.length];
+        for(int i=0;i<tab.length;i++){
+            tabcopie[i]=tab[i];
+        }
+        return tabcopie;
+    }
 
     //______________________________________________
     
@@ -68,14 +72,11 @@ public class MasterMindBase {
 	résultat : vrai ssi c est un élément de t
 	stratégie : utilise la fonction plusGrandIndice
     */
-    public static boolean estPresent(char[] t, char c){
-        boolean result = false;
-        for(int i=0; i<t.length; i++){
-            if (t[i] == c){
-                result = true;
-            }
+    public static boolean estPresent(char[] t, char c){ //fait
+        if (plusGrandIndice(t,c)!=-1){
+            return true;
         }
-        return result;
+        return false;
     }
 
     //______________________________________________
@@ -85,14 +86,15 @@ public class MasterMindBase {
 	résultat : vrai ssi les éléments de t sont différents
 	stratégie : utilise la fonction plusGrandIndice
     */
-    public static boolean elemDiff(char[] t){ //todo completur pour afficher doublon + indices
-        boolean result = false;
-        for(int i=0; i<t.length; i++){
-            if ((plusGrandIndice(t, t[i])) != -1){
-                result = true;
+    public static boolean elemDiff(char[] t){ //todo completer pour afficher doublon + indices
+        int [] indice = new int[3]
+        for(int i=0; i<t.length-1; i++){ //jmet -1 pour faire la plus petite boucle possible (efficace)
+            if (plusGrandIndice(t,t[i])!=i){
+
+                return false;
             }
         }
-        return false;
+
     }
     
     //______________________________________________
