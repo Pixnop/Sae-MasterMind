@@ -86,11 +86,11 @@ public class MasterMindBase {
 	résultat : vrai ssi les éléments de t sont différents
 	stratégie : utilise la fonction plusGrandIndice
     */
-    public static boolean elemDiff(char[] t){ //todo completer pour afficher doublon + indices
+    public static boolean elemDiff(char[] t){ // fais
         int [] indice = new int[3]
         for(int i=0; i<t.length-1; i++){ //jmet -1 pour faire la plus petite boucle possible (efficace)
             if (plusGrandIndice(t,t[i])!=i){
-
+                System.out.println("La valeur " + t[i] + "est présente à l'emplacement " + i + "et " + plusGrandIndice(t,t[i]) );
                 return false;
             }
         }
@@ -123,7 +123,10 @@ public class MasterMindBase {
     */
     public static int[] codeAleat(int lgCode, int nbCouleurs){
 
-        return new int[0];
+        for (int i=0; i<lgCode;i++){
+
+        }
+        return randomcode;
     }
 
     //____________________________________________________________
