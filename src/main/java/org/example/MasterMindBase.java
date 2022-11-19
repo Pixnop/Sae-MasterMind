@@ -220,25 +220,29 @@ public class MasterMindBase {
 	résultat : le nombre d'éléments communs de cod1 et cod2, indépendamment de leur position
 	Par exemple, si cod1 = (1,0,2,0) et cod2 = (0,1,0,0) la fonction retourne 3 (2 "0" et 1 "1")
     */
-    public static int nbCommuns(int[] cod1,int[] cod2, int nbCouleurs){ //problème il va passer plusieurs fois sur la meme valeur cod2
-        int nbenCommuns=0;
+    public static int nbCommuns(int[] cod1,int[] cod2, int nbCouleurs){ //TODO erreur dans le test je trouve pas quel est le problème
         int [] cod2bis = new int[cod2.length];
         if (cod1.length!=cod2.length){
             System.out.print("problème sur nbCommuns, la longueur des deux 'cod' est différente");
             return 0;
         }
+
         for (int i=0; i<cod2.length;i++){ //cod2bis prend la valeur de cod2
             cod2bis[i]=cod2[i];
         }
-        for (int i=0;i<cod1.length;i++){  //compare cod1 avec cod2bis si meme valeur nbenCommuns
-            for (int j=0;j<cod1.length;j++){
+        int i=0;
+        int j=0;
+        int nbenCommuns=0;
+        while (i<cod1.length){  //compare cod1 avec cod2bis si meme valeur nbenCommuns
+            while (j<cod1.length){
                 if (cod2bis[i] == cod1[j]) {
                     nbenCommuns++;
-                    cod2bis[i]=nbCouleurs;
-                    i++;
-                    j=0;
+                    cod2bis[i]=nbCouleurs+1;
                 }
+                j++;
             }
+            j=0;
+            i++;
         }
         return nbenCommuns;
     }
@@ -273,7 +277,7 @@ public class MasterMindBase {
     // MANCHEHUMAIN
     //.........................................................................
 
-    /** pré-requis : numMache >= 1
+    /** pré-requis : numManche >= 1
 	action : effectue la (numManche)ème manche où l'ordinateur est le codeur et l'humain le décodeur
 	(le paramètre numManche ne sert que pour l'affichage)
 	résultat : 
