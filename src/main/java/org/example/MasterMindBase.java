@@ -161,9 +161,10 @@ public class MasterMindBase {
 	résultat : le code codMot sous forme de tableau d'entiers en remplaçant chaque couleur par son indice dans tabCouleurs
     */
     public static int[] motVersEntiers(String codMot, char[] tabCouleurs){
-
+        int[] resultat = new int[];
+        char [] tabcar = new char[];
         return new int[0];
-    }
+    } // recuperer l'indice dans tabcouleur est le bail tricky
 
     //____________________________________________________________
     
