@@ -86,7 +86,7 @@ public class MasterMindBase {
 	résultat : vrai ssi les éléments de t sont différents
 	stratégie : utilise la fonction plusGrandIndice
     */
-    public static boolean elemDiff(char[] t){ // fais
+    public static boolean elemDiff(char[] t){ //todo : verifier si c'est vrm ça qui est voulu
         int [] indice = new int[3]
         for(int i=0; i<t.length-1; i++){ //jmet -1 pour faire la plus petite boucle possible (efficace)
             if (plusGrandIndice(t,t[i])!=i){
@@ -121,7 +121,7 @@ public class MasterMindBase {
     /** pré-requis : aucun
 	résultat : un tableau de lgCode entiers choisis aléatoirement entre 0 et nbCouleurs-1
     */
-    public static int[] codeAleat(int lgCode, int nbCouleurs){
+    public static int[] codeAleat(int lgCode, int nbCouleurs){ //todo : à test
         int [] randomcode = new int[lgCode];
         for (int i=0; i<lgCode;i++){
             Random r = new Random();
@@ -136,13 +136,23 @@ public class MasterMindBase {
 	action : si codMot n'est pas correct, affiche pourquoi
 	résultat : vrai ssi codMot est correct, c'est-à-dire de longueur lgCode et ne contenant que des éléments de tabCouleurs
     */
-    public static boolean codeCorrect(String codMot, int lgCode, char[] tabCouleurs){
-        if (tabCouleurs.length!=lgCode){
+    public static boolean codeCorrect(String codMot, int lgCode, char[] tabCouleurs){ //todo : à test
+        int verif=0;
+        for (int i=0; i<lgCode; i++){  //incrémente verif de 1 chaque fois que le caractère est présent dans string
+             if (codMot.indexOf(tabCouleurs[i])!=-1){
+                 verif++;
+             }
+        }
+        if (verif!=lgCode){ //si verif n'a pas la meme valeur de la longueur du code, c'est faux
+            System.out.print("les éléments de codMot ne sont pas tous présents dans le tableau");
+            return false;
+        }
+
+        if (tabCouleurs.length!=lgCode){ // verifie la taille du tableau ^^
             System.out.print("la longueur de ton tableau n'est pas bonne");
             return false;
         }
-        if
-        return false;
+        return true;
     }
    
     //____________________________________________________________
