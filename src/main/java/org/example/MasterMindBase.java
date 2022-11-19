@@ -232,7 +232,7 @@ public class MasterMindBase {
         }
         for (int i=0;i<cod1.length;i++){  //compare cod1 avec cod2bis si meme valeur nbenCommuns
             for (int j=0;j<cod1.length;j++){
-                if (cod1[i] == cod2bis[j]) {
+                if (cod2bis[i] == cod1[j]) {
                     nbenCommuns++;
                     cod2bis[i]=nbCouleurs;
                     i++;
