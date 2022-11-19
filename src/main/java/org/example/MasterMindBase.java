@@ -192,7 +192,7 @@ public class MasterMindBase {
             }
         }
 
-        while(nbr-codbis.length!=0){ //va comparer la somme des éléments de codbis (nbr) au nombre voulu (cod.length)
+        while(nbr-cod.length!=0){ //va comparer la somme des éléments de codbis (nbr) au nombre voulu (cod.length)
             int j=0;
             while (codbis[j]!=0){ // tant que celui ci est inférieur: on remplace le prochain 0 de codbis par 1
                 j++;
