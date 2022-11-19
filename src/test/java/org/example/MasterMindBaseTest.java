@@ -80,8 +80,8 @@ public class MasterMindBaseTest {
 
     @Test
     public void testNbCommuns() {
-        int[] vale1 = {4,3,3,3};
-        int[] vale2 = {3,3,4,3};
+        int[] vale1 = {3,1,1,1};
+        int[] vale2 = {1,1,2,3};
         int nbdecouleur=4;
         int result=3;
         assertEquals(result, MasterMindBase.nbCommuns(vale1,vale2,nbdecouleur));
