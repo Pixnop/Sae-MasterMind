@@ -179,7 +179,7 @@ public class MasterMindBase {
 	résultat : un tableau de longueur nbCouleurs contenant à chaque indice i le nombre d'occurrences de i dans cod
 	Par exemple, si cod = (1,0,2,0) et nbCouleurs = 6 la fonction retourne (2,1,1,0,0,0)
     */
-    public static int[] tabFrequence(int[] cod, int nbCouleurs){    // CEST BON
+    public static int[] tabFrequence(int[] cod, int nbCouleurs){  //fait
         int nbr=0;
         int [] codbis = new int [nbCouleurs];
         for (int i=0; i<nbCouleurs;i++){ //donne la valeur de l'ensemble des éléments de cod à nbr et met en place le tableau codbis
