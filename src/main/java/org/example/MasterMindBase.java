@@ -160,12 +160,20 @@ public class MasterMindBase {
     /** pré-requis : les caractères de codMot sont des éléments de tabCouleurs
 	résultat : le code codMot sous forme de tableau d'entiers en remplaçant chaque couleur par son indice dans tabCouleurs
     */
-    public static int[] motVersEntiers(String codMot, char[] tabCouleurs){
-        int[] resultat = new int[];
-        char [] tabcar = new char[];
-        return new int[0];
-    } // recuperer l'indice dans tabcouleur est le bail tricky
+    public static int[] motVersEntiers(String codMot, char[] tabCouleurs){ //todo : à test
+        int[] resultat = new int[codMot.length()];
+        int partielle=0;
+        for (int i=0;i<codMot.length();i++){
+            for(int j=0;j<codMot.length()&& partielle==0;j++){
+                if (codMot.charAt(i)==tabCouleurs[j]){
+                    resultat[i]=j;
+                    partielle++;
+                }
+            }
+            partielle=0;
+        }
 
+        return resultat;
     //____________________________________________________________
     
     /** pré-requis : aucun
@@ -174,7 +182,9 @@ public class MasterMindBase {
 	résultat : le code saisi sous forme de tableau d'entiers
     */
     public static int[] propositionCodeHumain(int nbCoups, int lgCode, char[] tabCouleurs){
-
+        Scanner scanner=new Scanner(System.in);
+        System.out.print("Saisissez votre " + nbCoups+1 + "proposition : (sous forme de mot)");
+        String reponse = scanner.nextLine();
         return new int[0];
     }
 
@@ -184,7 +194,7 @@ public class MasterMindBase {
 	résultat : le nombre d'éléments communs de cod1 et cod2 se trouvant au même indice
 	Par exemple, si cod1 = (1,0,2,0) et cod2 = (0,1,0,0) la fonction retourne 1 (le "0" à l'indice 3)
     */
-    public static int nbBienPlaces(int[] cod1,int[] cod2){//fait
+    public static int nbBienPlaces(int[] cod1, int[] cod2){//fait
         int bonneplace=0;
         for(int i=0;i<cod1.length;i++){
             if (cod1[i]==cod2[i]){
