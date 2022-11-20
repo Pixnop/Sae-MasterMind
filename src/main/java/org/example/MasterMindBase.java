@@ -183,9 +183,9 @@ public class MasterMindBase {
     */
     public static int[] propositionCodeHumain(int nbCoups, int lgCode, char[] tabCouleurs){
         Scanner scanner=new Scanner(System.in);
-        System.out.print("Saisissez votre " + nbCoups+1 + "proposition : (sous forme de mot)");
+        System.out.print("Saisissez votre " + nbCoups+1 + " proposition : (sous forme de mot séparés par une virgule)");
         String reponse = scanner.nextLine();
-
+        codMot.charAt(i)
 
         return new int[0];
     }
