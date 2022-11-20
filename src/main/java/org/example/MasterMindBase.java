@@ -185,6 +185,8 @@ public class MasterMindBase {
         Scanner scanner=new Scanner(System.in);
         System.out.print("Saisissez votre " + nbCoups+1 + "proposition : (sous forme de mot)");
         String reponse = scanner.nextLine();
+
+
         return new int[0];
     }
 
