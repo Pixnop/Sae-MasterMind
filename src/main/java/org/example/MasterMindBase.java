@@ -356,9 +356,14 @@ public class MasterMindBase {
                  avec re-saisie éventuelle jusqu'à ce qu'elle soit correcte
 	résultat : les réponses du joueur humain dans un tableau à 2 entiers
     */
-    public static int[] reponseHumain(int lgCode){
-
-        return new int[0];
+    public static int[] reponseHumain(int lgCode){ //todo : a finir
+        int [] reponse = new int[2];
+        boolean ret = false;
+        while ret == false){
+            System.out.println("Saisissez le nombre de bien placés : ");
+            ret = true;
+            }
+        return reponse;
     }
 
     //___________________________________________________________________
