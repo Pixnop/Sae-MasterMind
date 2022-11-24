@@ -108,7 +108,7 @@ public class MasterMindBase {
         boolean egaux=true;
         for (int i=0; i<t1.length; i++){
             if(t1[i]!=t2[i]){
-                egaux=false
+                egaux=false;
             }
         }
         return egaux;
@@ -419,13 +419,14 @@ public class MasterMindBase {
      // 4 4 4 3 : 4 couleurs différente
     public static boolean passeCodeSuivantLexico(int[] cod1, int  nbCouleurs){
         for (int i=cod1.length-1; i>0;i--){
-            if (cod1[i]<nbCouleurs-1;){
+            boolean b = cod1[i] < nbCouleurs - 1;
+            if (b){
                 cod1[i]++;
                 return true;
             }
         }
-        for (i=0; i<cod1.length;i++){
-            cod[i]=0;    
+        for (int i=0; i<cod1.length;i++){
+            cod1[i]=0;
         }
         return false;
     }
@@ -548,4 +549,4 @@ public class MasterMindBase {
     //___________________________________________________________________
     
 }
-}// fin MasterMindBase
+// fin MasterMindBase
