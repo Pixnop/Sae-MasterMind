@@ -191,7 +191,7 @@ public class MasterMindBase {
 	qu'elle soit correcte (le paramètre nbCoups ne sert que pour l'affichage)
 	résultat : le code saisi sous forme de tableau d'entiers
     */
-    public static int[] propositionCodeHumain(int nbCoups, int lgCode, char[] tabCouleurs){ // todo : rajouter resaisie avec fonction codeCorrect !
+    public static int[] propositionCodeHumain(int nbCoups, int lgCode, char[] tabCouleurs){ // todo : paufiner reste pas grand chose jdois aller manger :)
         Scanner scanner=new Scanner(System.in);
         boolean codebon=false;
         System.out.print("Saisissez votre proposition n°"+nbCoups+1  +" (sous forme de mot séparés par une virgule) : \n ");
@@ -202,9 +202,9 @@ public class MasterMindBase {
             reponse = scanner.next();
             codebon=codeCorrect(reponse,lgCode,tabCouleurs);
         }
-        char [] tabentier= new char [lgCode];
+        int [] tabentier;
         tabentier= motVersEntiers(reponse, tabCouleurs);
-        return new int[0];
+        return tabentier;
     }
 
     //____________________________________________________________
