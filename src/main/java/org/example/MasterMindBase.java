@@ -139,13 +139,16 @@ public class MasterMindBase {
 	action : si codMot n'est pas correct, affiche pourquoi
 	résultat : vrai ssi codMot est correct, c'est-à-dire de longueur lgCode et ne contenant que des éléments de tabCouleurs
     */
-    public static boolean codeCorrect(String codMot, int lgCode, char[] tabCouleurs){ //todo : à test
+    public static boolean codeCorrect(String codMot, int lgCode, char[] tabCouleurs){ //todo : à test + rajouter possibilité vert et violet avec plusGrandIndice ? (si plus grand indice alors valeur = x ?)
         int verif=0;
-        boolean correct=true
+        boolean correct=true;
         for (int i=0; i<lgCode; i++){  //incrémente verif de 1 chaque fois que le caractère est présent dans string
-             if (codMot.charAt(0).indexOf(tabCouleurs[i])!=-1){
-                 verif++;
-             }
+            for (int j=0; j<lgCode;j++) {
+                String[] listestrings = codMot.split(",");
+                if (listestrings[i].charAt(0) == tabCouleurs[j]) {
+                    verif++;
+                }
+            }
         }
         if (verif!=lgCode){ //si verif n'a pas la meme valeur de la longueur du code, c'est faux
             System.out.print("les éléments de codMot ne sont pas tous présents dans le tableau");
@@ -153,7 +156,7 @@ public class MasterMindBase {
         }
 
         else if (tabCouleurs.length!=lgCode){ // verifie la taille du tableau ^^
-            System.out.print("la longueur de ton tableau n'est pas bonne");
+            System.out.print("la longueur du code n'est pas bonne");
             correct=false;
         }
         return correct;
