@@ -418,7 +418,7 @@ public class MasterMindBase {
      */
      // 4 4 4 3 : 4 couleurs différente
     public static boolean passeCodeSuivantLexico(int[] cod1, int  nbCouleurs){
-        boolean existe = false
+        boolean existe = false;
         for (int i=cod1.length-1; i>0;i--){
             boolean b = cod1[i] < nbCouleurs - 1;
             if (b){
