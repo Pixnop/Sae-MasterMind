@@ -87,13 +87,15 @@ public class MasterMindBase {
 	stratégie : utilise la fonction plusGrandIndice
     */
     public static boolean elemDiff(char[] t){ //todo : verifier si c'est vrm ça qui est voulu
-        int [] indice = new int[3]
+        int [] indice = new int[3];
+        boolean result = true;
         for(int i=0; i<t.length-1; i++){ //jmet -1 pour faire la plus petite boucle possible (efficace)
             if (plusGrandIndice(t,t[i])!=i){
                 System.out.println("La valeur " + t[i] + "est présente à l'emplacement " + i + "et " + plusGrandIndice(t,t[i]) );
-                return false;
+                result = false;
             }
         }
+        return result;
 
     }
 
@@ -157,23 +159,25 @@ public class MasterMindBase {
    
     //____________________________________________________________
     
-    /** pré-requis : les caractères de codMot sont des éléments de tabCouleurs
-	résultat : le code codMot sous forme de tableau d'entiers en remplaçant chaque couleur par son indice dans tabCouleurs
-    */
-    public static int[] motVersEntiers(String codMot, char[] tabCouleurs){ //todo : à test
-        int[] resultat = new int[codMot.length()];
-        int partielle=0;
-        for (int i=0;i<codMot.length();i++){
-            for(int j=0;j<codMot.length()&& partielle==0;j++){
-                if (codMot.charAt(i)==tabCouleurs[j]){
-                    resultat[i]=j;
+    /**
+     * pré-requis : les caractères de codMot sont des éléments de tabCouleurs
+     * résultat : le code codMot sous forme de tableau d'entiers en remplaçant chaque couleur par son indice dans tabCouleurs
+     */
+    public static char[] motVersEntiers(String codMot, char[] tabCouleurs) { //todo : à test
+        char[] resultat = new char[codMot.length()];
+        int partielle = 0;
+        for (int i = 0; i < codMot.length(); i++) {
+            for (int j = 0; j < codMot.length() && partielle == 0; j++) {
+                if (codMot.charAt(i) == tabCouleurs[j]) {
+                    resultat[i] = (char) j;
                     partielle++;
                 }
             }
-            partielle=0;
+            partielle = 0;
         }
 
         return resultat;
+    }
     //____________________________________________________________
     
     /** pré-requis : aucun
@@ -185,8 +189,9 @@ public class MasterMindBase {
         Scanner scanner=new Scanner(System.in);
         System.out.print("Saisissez votre " + nbCoups+1 + " proposition : (sous forme de mot séparés par une virgule)");
         String reponse = scanner.nextLine();
-        codMot.charAt(i)
+        //codMot.charAt(i);
 
+        //return new int[0];
         return new int[0];
     }
 
@@ -197,7 +202,7 @@ public class MasterMindBase {
 	Par exemple, si cod1 = (1,0,2,0) et cod2 = (0,1,0,0) la fonction retourne 1 (le "0" à l'indice 3)
     */
     public static int nbBienPlaces(int[] cod1, int[] cod2){//fait
-        int bonneplace=0;
+        int bonneplace = 0;
         for(int i=0;i<cod1.length;i++){
             if (cod1[i]==cod2[i]){
                 bonneplace++;
@@ -359,7 +364,7 @@ public class MasterMindBase {
     public static int[] reponseHumain(int lgCode){ //todo : a finir
         int [] reponse = new int[]{0,0};
         Scanner scanner = new Scanner(System.in);
-        String s;
+        String s ;
         boolean b = false;
         int lu;
         while (b == false){
@@ -533,10 +538,11 @@ public class MasterMindBase {
      Les initiales des noms de couleurs doivent être différentes.
      Toute donnée incorrecte doit être re-saisie jusqu'à ce qu'elle soit correcte.
      */
-    public static void main (String[] args){
+    public static void main(String[] args){
 
 
     } // fin main
     //___________________________________________________________________
     
-} // fin MasterMindBase
+}
+}// fin MasterMindBase
