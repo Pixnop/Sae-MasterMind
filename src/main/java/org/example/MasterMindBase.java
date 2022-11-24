@@ -105,12 +105,13 @@ public class MasterMindBase {
 	résultat : vrai ssi t1 et t2 contiennent la même suite d'entiers
     */
     public static boolean sontEgaux(int[] t1, int[] t2){ //Fait
+        boolean egaux=true;
         for (int i=0; i<t1.length; i++){
             if(t1[i]!=t2[i]){
-                return false;
+                egaux=false
             }
         }
-        return true;
+        return egaux;
     }
 
     //______________________________________________
