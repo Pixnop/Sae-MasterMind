@@ -11,7 +11,9 @@ public class MasterMindBaseTest {
     public void setUp() {
 
     }
-
+    /** pré-requis : nb >= 0
+     résultat : un tableau de nb entiers égaux à val
+     */
     @Test
     public void testInitTab() {
         int nb = 4;
@@ -19,23 +21,32 @@ public class MasterMindBaseTest {
         int[] verif = {3,3,3,3};
         assertEquals(verif, MasterMindBase.initTab(nb,val));
     }
-
+    /** pré-requis : aucun
+     résultat : une copie de tab
+     */
     @Test
     public void testCopieTab() {
         int[] verif = {1,2,3,4};
         assertEquals(verif, MasterMindBase.copieTab(verif));
     }
-
+    /** pré-requis : aucun
+     résultat : la liste des éléments de t entre parenthèses et séparés par des virgules
+     */
     @Test
     public void testListElem() {
         char[] verif = {'a','b','c','d'};
         String result = "(a,b,c,d)";
         assertEquals(result, MasterMindBase.listElem(verif));
     }
-
+    /** pré-requis : aucun
+     résultat : le plus grand indice d'une case de t contenant c s'il existe, -1 sinon
+     */
     @Test
     public void testPlusGrandIndice() {
-
+        char[] verif = {'a','b','c','b'};
+        char Averif = 'b';
+        int result = 3;
+        assertEquals(result, MasterMindBase.plusGrandIndice(verif, Averif));
     }
 
     @Test
@@ -44,6 +55,9 @@ public class MasterMindBaseTest {
 
     @Test
     public void testElemDiff() {
+        char[] verif = {'a','b','b','d'};
+
+
     }
 
     @Test
