@@ -73,10 +73,11 @@ public class MasterMindBase {
 	stratégie : utilise la fonction plusGrandIndice
     */
     public static boolean estPresent(char[] t, char c){ //fait
+        boolean ilyest=false;
         if (plusGrandIndice(t,c)!=-1){
-            return true;
+            ilyest= true;
         }
-        else {return false;}
+        return ilyest;
     }
 
     //______________________________________________
@@ -139,7 +140,7 @@ public class MasterMindBase {
 	action : si codMot n'est pas correct, affiche pourquoi
 	résultat : vrai ssi codMot est correct, c'est-à-dire de longueur lgCode et ne contenant que des éléments de tabCouleurs
     */
-    public static boolean codeCorrect(String codMot, int lgCode, char[] tabCouleurs){ //todo : à test + rajouter possibilité vert et violet avec plusGrandIndice ? (si plus grand indice alors valeur = x ?)
+    public static boolean codeCorrect(String codMot, int lgCode, char[] tabCouleurs){ //todo : à test + rajouter possibilité vert et violet avec plusGrandIndice ?
         int verif=0;
         boolean correct=true;
         for (int i=0; i<lgCode; i++){  //incrémente verif de 1 chaque fois que le caractère est présent dans string
