@@ -366,7 +366,7 @@ public class MasterMindBase {
         Scanner scanner = new Scanner(System.in);
         String s ;
         boolean b = false;
-        int lu;
+        int lu = 0;
         while (b == false){
             System.out.println("Saisissez le nombre de bien placés : ");  //reponse [0] sera le nombre de bien placés
             s = scanner.next();
@@ -376,7 +376,7 @@ public class MasterMindBase {
             catch(NumberFormatException ex){
                 System.out.println("Ce n'est pas un entier. Recommencez s'il vous plaît \n");
             }
-            if (lu>=0 && lu<=lgCode){
+            if (lu >= 0 && lu<=lgCode){
                 b = true;
                 reponse[0] = lu;
                 }
