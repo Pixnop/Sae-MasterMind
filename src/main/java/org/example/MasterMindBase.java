@@ -141,21 +141,22 @@ public class MasterMindBase {
     */
     public static boolean codeCorrect(String codMot, int lgCode, char[] tabCouleurs){ //todo : à test
         int verif=0;
+        boolean correct=true
         for (int i=0; i<lgCode; i++){  //incrémente verif de 1 chaque fois que le caractère est présent dans string
-             if (codMot.indexOf(tabCouleurs[i])!=-1){
+             if (codMot.charAt(0).indexOf(tabCouleurs[i])!=-1){
                  verif++;
              }
         }
         if (verif!=lgCode){ //si verif n'a pas la meme valeur de la longueur du code, c'est faux
             System.out.print("les éléments de codMot ne sont pas tous présents dans le tableau");
-            return false;
+            correct=false;
         }
 
-        if (tabCouleurs.length!=lgCode){ // verifie la taille du tableau ^^
+        else if (tabCouleurs.length!=lgCode){ // verifie la taille du tableau ^^
             System.out.print("la longueur de ton tableau n'est pas bonne");
-            return false;
+            correct=false;
         }
-        return true;
+        return correct;
     }
    
     //____________________________________________________________
@@ -188,9 +189,12 @@ public class MasterMindBase {
     */
     public static int[] propositionCodeHumain(int nbCoups, int lgCode, char[] tabCouleurs){ //rajouter resaisie avec fonction codeCorrect
         Scanner scanner=new Scanner(System.in);
+        boolean codebon=false;
         System.out.print("Saisissez votre " + nbCoups+1 + "ème proposition (sous forme de mot séparés par une virgule) : \n ");
         String reponse = scanner.next();
-        //if ()
+        while (codebon==false){
+            
+        }
         //codMot.charAt(i);
 
         return new int[0];
@@ -478,7 +482,7 @@ public class MasterMindBase {
               s'il n'a toujours pas trouvé au bout du nombre maximum d'essais 
             - sinon le nombre de codes proposés par l'ordinateur
     */
-    public static int mancheOrdinateur(int lgCode,char[] tabCouleurs, int numManche, int nbEssaisMax) {
+    public static int mancheOrdinateur(int lgCode,char[] tabCouleurs, int numManche, int nbEssaisMax) { //vérifie si chaque possibilité est compatible avec les différentes réponses
 
         return lgCode;
     }
