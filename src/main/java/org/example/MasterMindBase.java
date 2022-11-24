@@ -369,6 +369,7 @@ public class MasterMindBase {
         int lu;
         while (b == false){
             System.out.println("Saisissez le nombre de bien placés : ");  //reponse [0] sera le nombre de bien placés
+            s = scanner.next();
             try{
                 lu = Integer.parseInt(s);
             }
@@ -387,6 +388,7 @@ public class MasterMindBase {
         b=false;
         while(b==false){
             System.out.println("Saisissez le nombre de mal placés : ");
+            s = scanner.next();
             try{
                 lu = Integer.parseInt(s);
             }
