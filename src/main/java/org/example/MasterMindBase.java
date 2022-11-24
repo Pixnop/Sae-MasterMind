@@ -76,7 +76,7 @@ public class MasterMindBase {
         if (plusGrandIndice(t,c)!=-1){
             return true;
         }
-        return false;
+        else {return false;}
     }
 
     //______________________________________________
@@ -186,13 +186,13 @@ public class MasterMindBase {
 	qu'elle soit correcte (le paramètre nbCoups ne sert que pour l'affichage)
 	résultat : le code saisi sous forme de tableau d'entiers
     */
-    public static int[] propositionCodeHumain(int nbCoups, int lgCode, char[] tabCouleurs){
+    public static int[] propositionCodeHumain(int nbCoups, int lgCode, char[] tabCouleurs){ //rajouter resaisie avec fonction codeCorrect
         Scanner scanner=new Scanner(System.in);
-        System.out.print("Saisissez votre " + nbCoups+1 + " proposition : (sous forme de mot séparés par une virgule)");
-        String reponse = scanner.nextLine();
+        System.out.print("Saisissez votre " + nbCoups+1 + "ème proposition (sous forme de mot séparés par une virgule) : \n ");
+        String reponse = scanner.next();
+        //if ()
         //codMot.charAt(i);
 
-        //return new int[0];
         return new int[0];
     }
 
@@ -418,17 +418,18 @@ public class MasterMindBase {
      */
      // 4 4 4 3 : 4 couleurs différente
     public static boolean passeCodeSuivantLexico(int[] cod1, int  nbCouleurs){
+        boolean existe = false
         for (int i=cod1.length-1; i>0;i--){
             boolean b = cod1[i] < nbCouleurs - 1;
             if (b){
                 cod1[i]++;
-                return true;
+                existe=true;
             }
         }
         for (int i=0; i<cod1.length;i++){
             cod1[i]=0;
         }
-        return false;
+        return existe;
     }
 
     //___________________________________________________________________
