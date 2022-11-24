@@ -33,6 +33,8 @@ public class Graphique  extends JFrame {
 
         JPanel panelLeft = new JPanel();
         JPanel panelRight = new JPanel();
+        JPanel panelRightUp = new JPanel();
+        JPanel panelRightDown = new JPanel();
 
         JComboBox Couleur1 = new JComboBox();
         JComboBox Couleur2 = new JComboBox();
@@ -61,10 +63,17 @@ public class Graphique  extends JFrame {
         panelLeft.add(envoyerButton);
         panelLeft.add(menuButton);
 
-        panelRight.add(Couleur1);
-        panelRight.add(Couleur2);
-        panelRight.add(Couleur3);
-        panelRight.add(Couleur4);
+        panelRightUp.add(Couleur1);
+        panelRightUp.add(Couleur2);
+        panelRightUp.add(Couleur3);
+        panelRightUp.add(Couleur4);
+
+        panelRightDown.add(menuButton);
+        panelRightDown.add(envoyerButton);
+
+        panelRight.setAlignmentY(1);
+        panelRight.add(panelRightUp);
+        panelRight.add(panelRightDown);
 
         JPanel panneau = new JPanel();
         panneau.add(panelLeft);
