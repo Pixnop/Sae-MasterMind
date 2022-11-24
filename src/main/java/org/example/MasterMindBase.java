@@ -169,13 +169,13 @@ public class MasterMindBase {
      * pré-requis : les caractères de codMot sont des éléments de tabCouleurs
      * résultat : le code codMot sous forme de tableau d'entiers en remplaçant chaque couleur par son indice dans tabCouleurs
      */
-    public static char[] motVersEntiers(String codMot, char[] tabCouleurs) { //todo : à test
-        char[] resultat = new char[codMot.length()];
+    public static int[] motVersEntiers(String codMot, char[] tabCouleurs) { //todo : à test (manque le traitement de la non présence de la lettre, codecorrect)
+        int[] resultat = new int[codMot.length()];
         int partielle = 0;
         for (int i = 0; i < codMot.length(); i++) {
             for (int j = 0; j < codMot.length() && partielle == 0; j++) {
                 if (codMot.charAt(i) == tabCouleurs[j]) {
-                    resultat[i] = (char) j;
+                    resultat[i] = j;
                     partielle++;
                 }
             }
@@ -191,16 +191,19 @@ public class MasterMindBase {
 	qu'elle soit correcte (le paramètre nbCoups ne sert que pour l'affichage)
 	résultat : le code saisi sous forme de tableau d'entiers
     */
-    public static int[] propositionCodeHumain(int nbCoups, int lgCode, char[] tabCouleurs){ //rajouter resaisie avec fonction codeCorrect
+    public static int[] propositionCodeHumain(int nbCoups, int lgCode, char[] tabCouleurs){ // todo : rajouter resaisie avec fonction codeCorrect !
         Scanner scanner=new Scanner(System.in);
         boolean codebon=false;
-        System.out.print("Saisissez votre " + nbCoups+1 + "ème proposition (sous forme de mot séparés par une virgule) : \n ");
+        System.out.print("Saisissez votre proposition n°"+nbCoups+1  +" (sous forme de mot séparés par une virgule) : \n ");
         String reponse = scanner.next();
-        while (codebon==false){
-            
+        codebon=codeCorrect(reponse,lgCode,tabCouleurs);
+        while (!codebon){
+            System.out.print("Votre proposition n'était pas possible, recommencez (sous forme de mot séparés par une virgule) : \n ");
+            reponse = scanner.next();
+            codebon=codeCorrect(reponse,lgCode,tabCouleurs);
         }
-        //codMot.charAt(i);
-
+        char [] tabentier= new char [lgCode];
+        tabentier= motVersEntiers(reponse, tabCouleurs);
         return new int[0];
     }
 
