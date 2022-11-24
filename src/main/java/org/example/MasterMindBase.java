@@ -13,7 +13,7 @@ public class MasterMindBase {
 
     /** pré-requis : nb >= 0
 	résultat : un tableau de nb entiers égaux à val
-    */
+    */ 
     public static int[] initTab(int nb, int val){ //Fait
         int[] t = new int[nb];
         Arrays.fill(t, val);
