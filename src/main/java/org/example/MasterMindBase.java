@@ -372,11 +372,20 @@ public class MasterMindBase {
      *************************************************
      pré-requis : les éléments de cod1 sont des entiers de 0 à nbCouleurs-1
      action/résultat : met dans cod1 le code qui le suit selon l'ordre lexicographique (dans l'ensemble
-     des codes à valeurs  de 0 à nbCouleurs-1) et retourne vrai si ce code existe,
+     des codes à valeurs  de 0 à nbCouleurs-1) et retourne vrai si ce code existe, 
      sinon met dans cod1 le code ne contenant que des "0" et retourne faux
      */
+     // 4 4 4 3 : 4 couleurs différente
     public static boolean passeCodeSuivantLexico(int[] cod1, int  nbCouleurs){
-
+        for (int i=cod1.length-1; i>0;i--){
+            if (cod1[i]<nbCouleurs-1;){
+                cod1[i]++;
+                return true;
+            }
+        }
+        for (i=0; i<cod1.length;i++){
+            cod[i]=0;    
+        }
         return false;
     }
 
@@ -392,6 +401,7 @@ public class MasterMindBase {
      propositions de cod seraient les nbCoups premières réponses de rep resp.
      */
     public static boolean estCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){
+        
         return false; //jai rajouté
     }
 
