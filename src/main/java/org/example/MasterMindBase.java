@@ -13,7 +13,7 @@ public class MasterMindBase {
 
     /** pré-requis : nb >= 0
 	résultat : un tableau de nb entiers égaux à val
-    */
+    */ 
     public static int[] initTab(int nb, int val){ //Fait
         int[] t = new int[nb];
         Arrays.fill(t, val);
@@ -357,12 +357,45 @@ public class MasterMindBase {
 	résultat : les réponses du joueur humain dans un tableau à 2 entiers
     */
     public static int[] reponseHumain(int lgCode){ //todo : a finir
-        int [] reponse = new int[2];
-        boolean ret = false;
-        while ret == false){
-            System.out.println("Saisissez le nombre de bien placés : ");
-            ret = true;
+        int [] reponse = new int[]{0,0};
+        Scanner scanner = new Scanner(System.in);
+        String s;
+        boolean b = false;
+        int lu;
+        while (b == false){
+            System.out.println("Saisissez le nombre de bien placés : ");  //reponse [0] sera le nombre de bien placés
+            try{
+                lu = Integer.parseInt(s);
             }
+            catch(NumberFormatException ex){
+                System.out.println("Ce n'est pas un entier. Recommencez s'il vous plaît \n");
+            }
+            if (lu>=0 && lu<=lgCode){
+                b = true;
+                reponse[0] = lu;
+                }
+            else {
+                System.out.println("La réponse n'est pas dans l'intervalle 0 - " + lgCode);
+            }
+        }
+
+        b=false;
+        while(b==false){
+            System.out.println("Saisissez le nombre de mal placés : ");
+            try{
+                lu = Integer.parseInt(s);
+            }
+            catch(NumberFormatException ex){
+                System.out.println("Ce n'est pas un entier. Recommencez s'il vous plaît \n");
+            }
+            if (lu>=0 && lu<=lgCode-reponse[0]){
+                b = true;
+                reponse[1] = lu;
+            }
+            else {
+                System.out.println("La réponse n'est pas compatible avec le nombre de bien placés \n ");
+            }
+        }
         return reponse;
     }
 
