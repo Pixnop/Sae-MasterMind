@@ -152,12 +152,12 @@ public class MasterMindBase {
             }
         }
         if (verif!=lgCode){ //si verif n'a pas la meme valeur de la longueur du code, c'est faux
-            System.out.print("les éléments de codMot ne sont pas tous présents dans le tableau");
+            System.out.print("les éléments de votre code ne sont pas tous présents dans les possibilitées \n");
             correct=false;
         }
 
         else if (tabCouleurs.length!=lgCode){ // verifie la taille du tableau ^^
-            System.out.print("la longueur du code n'est pas bonne");
+            System.out.print("La longueur de votre code n'est pas bonne \n");
             correct=false;
         }
         return correct;
@@ -191,18 +191,18 @@ public class MasterMindBase {
 	qu'elle soit correcte (le paramètre nbCoups ne sert que pour l'affichage)
 	résultat : le code saisi sous forme de tableau d'entiers
     */
-    public static int[] propositionCodeHumain(int nbCoups, int lgCode, char[] tabCouleurs){ // todo : paufiner reste pas grand chose jdois aller manger :)
+    public static int[] propositionCodeHumain(int nbCoups, int lgCode, char[] tabCouleurs){ // todo : tester
         Scanner scanner=new Scanner(System.in);
         boolean codebon=false;
         System.out.print("Saisissez votre proposition n°"+nbCoups+1  +" (sous forme de mot séparés par une virgule) : \n ");
         String reponse = scanner.next();
         codebon=codeCorrect(reponse,lgCode,tabCouleurs);
         while (!codebon){
-            System.out.print("Votre proposition n'était pas possible, recommencez (sous forme de mot séparés par une virgule) : \n ");
+            System.out.print("Réécrivez votre code  (sous forme de mot séparés par une virgule) : ");
             reponse = scanner.next();
             codebon=codeCorrect(reponse,lgCode,tabCouleurs);
         }
-        int [] tabentier;
+        int [] tabentier;        //pas besoin de new, car créé dans motVersEntiers
         tabentier= motVersEntiers(reponse, tabCouleurs);
         return tabentier;
     }
