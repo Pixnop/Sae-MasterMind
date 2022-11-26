@@ -169,7 +169,7 @@ public class MasterMindBase {
      * pré-requis : les caractères de codMot sont des éléments de tabCouleurs
      * résultat : le code codMot sous forme de tableau d'entiers en remplaçant chaque couleur par son indice dans tabCouleurs
      */
-    public static int[] motVersEntiers(String codMot, char[] tabCouleurs) { //todo : à test (manque le traitement de la non présence de la lettre, codecorrect)
+    public static int[] motVersEntiers(String codMot, char[] tabCouleurs) { //todo : à test
         int[] resultat = new int[codMot.length()];
         int partielle = 0;
         for (int i = 0; i < codMot.length(); i++) {
@@ -305,7 +305,7 @@ public class MasterMindBase {
 	et 2 mal placés (1 "0" et 1 "1")
      Par exemple, si cod1 = (1,0,2,0) et cod2 = (0,1,0,0) la fonction retourne (1,2) : 1 b
     */
-    public static int[] nbBienMalPlaces(int[] cod1,int[] cod2, int nbCouleurs){ //marche pas pour l'instant
+    public static int[] nbBienMalPlaces(int[] cod1,int[] cod2, int nbCouleurs){ //marche pas, va renvoyer trop de malplacé dans l'exemple du prof
         int [] nbBMplace={0,0};
         int [] codbis = new int [cod1.length];
         for (int i=0;i<nbCouleurs;i++){
