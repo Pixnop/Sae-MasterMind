@@ -305,17 +305,30 @@ public class MasterMindBase {
 	et 2 mal placés (1 "0" et 1 "1")
      Par exemple, si cod1 = (1,0,2,0) et cod2 = (0,1,0,0) la fonction retourne (1,2) : 1 b
     */
-    public static int[] nbBienMalPlaces(int[] cod1,int[] cod2, int nbCouleurs){ //marche pas, va renvoyer trop de malplacé dans l'exemple du prof
+    public static int[] nbBienMalPlaces(int[] cod1,int[] cod2, int nbCouleurs){
         int [] nbBMplace={0,0};
-        int [] codbis = new int [cod1.length];
-        for (int i=0;i<nbCouleurs;i++){
-            for (int j=0;j<nbCouleurs;j++){
-                if (cod1[i]==cod2[j] && i==j){
-                    nbBMplace[0]++;
-                }
-                else if (cod1[i]==cod2[j]){
-                    nbBMplace[1]++;
-                }
+        int [] copie1=copieTab(cod1);
+        int i=0;
+        while (i<copie1.length) {
+            if (copie1[i] == cod2[i]) {
+                nbBMplace[0]++;
+                copie1[i]=nbCouleurs;
+                i++;
+            }
+        }
+        int j=0;
+        while (nbBMplace[0]+nbBMplace[1]<nbCommuns(cod1,cod2,nbCouleurs)){
+            if (j<copie1.length){
+                j++;
+            }
+            if (copie1[i]==cod2[j]){
+                nbBMplace[1]++;
+                i++;
+                j=0;
+            }
+            if (j>=copie1.length){
+                i++;
+                j=0;
             }
         }
         return nbBMplace;
