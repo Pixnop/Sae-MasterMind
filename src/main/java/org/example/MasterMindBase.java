@@ -388,7 +388,7 @@ public class MasterMindBase {
     */
     public static int[] reponseHumain(int lgCode){ //todo : a finir
         int [] reponse = new int[]{0,0};
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner=new Scanner(System.in);
         String s ;
         boolean b = false;
         int lu = 0;
@@ -540,9 +540,13 @@ public class MasterMindBase {
                  avec re-saisie éventuelle jusqu'à ce qu'elle soit correcte
 	résultat : l'entier pair strictement positif saisi
     */
-    public static int saisirEntierPairPositif(){
-
-        return 0;
+    public static int saisirEntierPairPositif(){ //fait
+        int result = saisirEntierPositif();
+        if (result % 2 != 0) {
+            System.out.println("Le nombre saisie est impair.");
+            saisirEntierPairPositif();
+            }
+        return result;
     }
 
     //___________________________________________________________________
@@ -576,7 +580,7 @@ public class MasterMindBase {
      Toute donnée incorrecte doit être re-saisie jusqu'à ce qu'elle soit correcte.
      */
     public static void main(String[] args){
-
+        saisirEntierPairPositif();
     } // fin main
     //___________________________________________________________________
     
