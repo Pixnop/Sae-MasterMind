@@ -519,10 +519,18 @@ public class MasterMindBase {
                  avec re-saisie éventuelle jusqu'à ce qu'elle soit correcte
 	résultat : l'entier strictement positif saisi
     */
-    public static int saisirEntierPositif(){
-
-
-        return 0;
+    public static int saisirEntierPositif(){//fait
+        Scanner scanner=new Scanner(System.in);
+        int result = -1;
+        try {
+            System.out.print("rentrez un entier positif :");
+            result = scanner.nextInt();
+            } catch (Exception ignored) {}
+        if (result < 0){
+            System.out.println("mauvaise valeur !! (entier positif seulement)");
+            saisirEntierPositif();
+        }
+        return result;
     }
 
     //___________________________________________________________________
@@ -568,7 +576,6 @@ public class MasterMindBase {
      Toute donnée incorrecte doit être re-saisie jusqu'à ce qu'elle soit correcte.
      */
     public static void main(String[] args){
-
 
     } // fin main
     //___________________________________________________________________
