@@ -27,9 +27,7 @@ public class MasterMindBase {
     */
     public static int[] copieTab(int[] tab){ //Fait
         int [] tabcopie= new int[tab.length];
-        for(int i=0;i<tab.length;i++){
-            tabcopie[i]=tab[i];
-        }
+        System.arraycopy(tab, 0, tabcopie, 0, tab.length);
         return tabcopie;
     }
 
@@ -73,10 +71,7 @@ public class MasterMindBase {
 	stratégie : utilise la fonction plusGrandIndice
     */
     public static boolean estPresent(char[] t, char c){ //fait
-        boolean ilyest=false;
-        if (plusGrandIndice(t,c)!=-1){
-            ilyest= true;
-        }
+        boolean ilyest= plusGrandIndice(t, c) != -1;
         return ilyest;
     }
 
@@ -108,8 +103,9 @@ public class MasterMindBase {
     public static boolean sontEgaux(int[] t1, int[] t2){ //Fait
         boolean egaux=true;
         for (int i=0; i<t1.length; i++){
-            if(t1[i]!=t2[i]){
-                egaux=false;
+            if (t1[i] != t2[i]) {
+                egaux = false;
+                break;
             }
         }
         return egaux;
@@ -277,9 +273,8 @@ public class MasterMindBase {
             return 0;
         }
 
-        for (int i=0; i<cod2.length;i++){ //cod2bis prend la valeur de cod2
-            cod2bis[i]=cod2[i];
-        }
+        //cod2bis prend la valeur de cod2
+        System.arraycopy(cod2, 0, cod2bis, 0, cod2.length);
         int i=0;
         int j=0;
         int nbenCommuns=0;
@@ -392,7 +387,7 @@ public class MasterMindBase {
         String s ;
         boolean b = false;
         int lu = 0;
-        while (b == false){
+        while (!b){
             System.out.println("Saisissez le nombre de bien placés : ");  //reponse [0] sera le nombre de bien placés
             s = scanner.next();
             try{
@@ -411,7 +406,7 @@ public class MasterMindBase {
         }
 
         b=false;
-        while(b==false){
+        while(!b){
             System.out.println("Saisissez le nombre de mal placés : ");
             s = scanner.next();
             try{
@@ -557,9 +552,32 @@ public class MasterMindBase {
 	         avec re-saisie éventuelle jusqu'à ce qu'elle soit correcte
 	résultat : le tableau des initiales des noms de couleurs saisis
     */
-    public static char[] saisirCouleurs(){
+    public static char[] saisirCouleurs(){ // fini
+        Scanner scanner=new Scanner(System.in);
+        int nbCouleurs = saisirEntierPositif();
+        int i = 1;
+        char verify = 0;
+        boolean fin = true;
+        char[] result = new char[nbCouleurs];
+        while(i < nbCouleurs+1){
 
-        return new char[0];
+            System.out.println("nom couleurs n°" + i);
+            String str =  scanner.next();
+            verify = str.charAt(0);
+            for(int j=0; j<result.length; j++) {
+                if (result[j] == verify) {
+                    fin = false;
+                }
+            }
+            if(fin){
+                result[i-1]= verify;
+                i++;
+            }else {
+                System.out.println("Mauvais input");
+            }
+        }
+        System.out.println(result);
+        return result;
     }
 
     //___________________________________________________________________
@@ -580,9 +598,10 @@ public class MasterMindBase {
      Toute donnée incorrecte doit être re-saisie jusqu'à ce qu'elle soit correcte.
      */
     public static void main(String[] args){
-        saisirEntierPairPositif();
+
+        saisirCouleurs();
     } // fin main
     //___________________________________________________________________
-    
+
 }
 // fin MasterMindBase
