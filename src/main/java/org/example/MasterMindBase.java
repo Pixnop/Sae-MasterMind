@@ -444,7 +444,7 @@ public class MasterMindBase {
      *************************************************
      pré-requis : les éléments de cod1 sont des entiers de 0 à nbCouleurs-1
      action/résultat : met dans cod1 le code qui le suit selon l'ordre lexicographique (dans l'ensemble
-     des codes à valeurs  de 0 à nbCouleurs-1) et retourne vrai si ce code existe, 
+     des codes à valeurs de 0 à nbCouleurs-1) et retourne vrai si ce code existe,
      sinon met dans cod1 le code ne contenant que des "0" et retourne faux
      */
      // 4 4 4 3 : 4 couleurs différente
@@ -474,9 +474,28 @@ public class MasterMindBase {
      c'est-à-dire que si cod1 était le code secret, les réponses aux nbCoups premières
      propositions de cod seraient les nbCoups premières réponses de rep resp.
      */
-    public static boolean estCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){
-        
-        return false; //jai rajouté
+    public static boolean estCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){ //TODO il faut enlever le break et verif ci ca marche
+        int i,j,k;
+        boolean b=true;
+        for(i=0;i<nbCoups;i++){
+            int [] rep1=new int[2];
+            for(j=0;j<cod1.length;j++){
+                if(cod[i][j]==cod1[j]){
+                    rep1[0]++;
+                }else{
+                    for(k=0;k<cod1.length;k++){
+                        if(cod[i][j]==cod1[k]){
+                            rep1[1]++;
+                            break;
+                        }
+                    }
+                }
+            }
+            if((rep1[0]!=rep[i][0])||(rep1[1]!=rep[i][1])){
+                b=false;
+            }
+        }
+        return b;
     }
 
     //___________________________________________________________________
@@ -487,12 +506,12 @@ public class MasterMindBase {
      pré-requis : cod est une matrice à cod1.length colonnes, rep est une matrice à 2 colonnes, 0 <= nbCoups < cod.length,
      nbCoups < rep.length et les éléments de cod1 et de cod sont des entiers de 0 à nbCouleurs-1
      action/résultat : met dans cod1 le plus petit code (selon l'ordre lexicographique (dans l'ensemble
-     des codes à valeurs  de 0 à nbCouleurs-1) qui est à la fois plus grand que
+     des codes à valeurs de 0 à nbCouleurs-1) qui est à la fois plus grand que
      cod1 selon cet ordre et compatible avec les nbCoups premières lignes de cod et rep si ce code existe,
      sinon met dans cod1 le code ne contenant que des "0" et retourne faux
      */
     public static boolean passeCodeSuivantLexicoCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){
-    return false; //jai rajouté
+        return false; //jai rajouté
     }
 
 
