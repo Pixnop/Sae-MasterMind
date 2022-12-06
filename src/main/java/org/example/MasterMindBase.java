@@ -365,13 +365,22 @@ public class MasterMindBase {
     //___________________________________________________________________
     
     /** pré-requis : rep.length = 2
-	action : si rep n'est pas  correcte, affiche pourquoi, sachant que rep[0] et rep[1] sont 
+	action : si rep n'est pas correcte, affiche pourquoi, sachant que rep[0] et rep[1] sont
 	         les nombres de bien et mal placés resp.
 	résultat : vrai ssi rep est correct, c'est-à-dire rep[0] et rep[1] sont >= 0 et leur somme est <= lgCode
     */
-    public static boolean repCorrecte(int[] rep, int lgCode){
-        
-        return false;
+    public static boolean repCorrecte(int[] rep, int lgCode){//fait
+        boolean result = true;
+        if (rep[0] < 0 || rep[1] < 0) {
+            System.out.println("rep[0] ou rep[1] est negatif");
+            result = false;
+        } else if (rep[0] + rep[1] > lgCode) {
+            System.out.println("rep[0] + rep[1] est plus grand que lgCode");
+            result = false;
+        } else {
+            System.out.println("result: " + result);
+        }
+        return result;
     }
 
     //___________________________________________________________________
@@ -516,16 +525,14 @@ public class MasterMindBase {
     */
     public static int saisirEntierPositif(){//fait
         Scanner scanner=new Scanner(System.in);
-        int result = -1;
-        try {
-            System.out.print("rentrez un entier positif :");
-            result = scanner.nextInt();
-        } catch (Exception ignored) {}
-        if (result < 0){
-            System.out.println("mauvaise valeur !! (entier positif seulement)");
-            saisirEntierPositif();
-        }
-        return result;
+        int nb;
+        do {
+            System.out.println("Enter a strictly positive integer:");
+            while (!scanner.hasNextInt()) {
+                scanner.next();
+            }
+        } while ((nb = scanner.nextInt()) <= 0);
+        return nb;
     }
 
     //___________________________________________________________________
@@ -540,7 +547,6 @@ public class MasterMindBase {
         if (result % 2 != 0) {
             System.out.println("Le nombre saisie est impair.");
             saisirEntierPairPositif();
-
             }
         return result;
     }
@@ -557,7 +563,7 @@ public class MasterMindBase {
         Scanner scanner = new Scanner(System.in);
         boolean verif = true;
         int nbCouleurs = 0;
-        nbCouleurs = saisirEntierPositif();//TODO marquera -1 meme ci la fonction seul functione
+        nbCouleurs = saisirEntierPositif();
         char[] result = new char[nbCouleurs];
         String temp;
         for (int i = 0; i < nbCouleurs; ) {
