@@ -49,8 +49,13 @@ public class MasterMindBaseTest {
         assertEquals(result, MasterMindBase.plusGrandIndice(verif, Averif));
     }
 
+    /** pré-requis : aucun
+     résultat : vrai ssi c'est un élément de t
+     stratégie : utilise la fonction plusGrandIndice
+     */
     @Test
     public void testEstPresent() {
+
     }
 
     @Test

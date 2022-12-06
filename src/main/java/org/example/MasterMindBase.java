@@ -71,7 +71,7 @@ public class MasterMindBase {
 	stratégie : utilise la fonction plusGrandIndice
     */
     public static boolean estPresent(char[] t, char c){ //fait
-        boolean ilyest= plusGrandIndice(t, c) != -1;
+        boolean ilyest = plusGrandIndice(t, c) != -1;
         return ilyest;
     }
 
@@ -520,7 +520,7 @@ public class MasterMindBase {
         try {
             System.out.print("rentrez un entier positif :");
             result = scanner.nextInt();
-            } catch (Exception ignored) {}
+        } catch (Exception ignored) {}
         if (result < 0){
             System.out.println("mauvaise valeur !! (entier positif seulement)");
             saisirEntierPositif();
@@ -540,6 +540,7 @@ public class MasterMindBase {
         if (result % 2 != 0) {
             System.out.println("Le nombre saisie est impair.");
             saisirEntierPairPositif();
+
             }
         return result;
     }
@@ -552,28 +553,20 @@ public class MasterMindBase {
 	         avec re-saisie éventuelle jusqu'à ce qu'elle soit correcte
 	résultat : le tableau des initiales des noms de couleurs saisis
     */
-    public static char[] saisirCouleurs(){ // fini
-        Scanner scanner=new Scanner(System.in);
-        int nbCouleurs = saisirEntierPositif();
-        int i = 1;
-        char verify = 0;
-        boolean fin = true;
+    public static char[] saisirCouleurs() {
+        Scanner scanner = new Scanner(System.in);
+        boolean verif = true;
+        int nbCouleurs = 0;
+        nbCouleurs = saisirEntierPositif();//TODO marquera -1 meme ci la fonction seul functione
         char[] result = new char[nbCouleurs];
-        while(i < nbCouleurs+1){
-
-            System.out.println("nom couleurs n°" + i);
-            String str =  scanner.next();
-            verify = str.charAt(0);
-            for(int j=0; j<result.length; j++) {
-                if (result[j] == verify) {
-                    fin = false;
-                }
-            }
-            if(fin){
-                result[i-1]= verify;
+        String temp;
+        for (int i = 0; i < nbCouleurs; ) {
+            temp = scanner.next();
+            if (!estPresent(result, temp.charAt(0))) {
+                result[i] = temp.charAt(0);
                 i++;
-            }else {
-                System.out.println("Mauvais input");
+            } else {
+                System.out.println("result en double");
             }
         }
         System.out.println(result);
@@ -598,8 +591,8 @@ public class MasterMindBase {
      Toute donnée incorrecte doit être re-saisie jusqu'à ce qu'elle soit correcte.
      */
     public static void main(String[] args){
-
         saisirCouleurs();
+
     } // fin main
     //___________________________________________________________________
 
