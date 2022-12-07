@@ -122,7 +122,7 @@ public class MasterMindBase {
 	résultat : un tableau de lgCode entiers choisis aléatoirement entre 0 et nbCouleurs-1
     */
     public static int[] codeAleat(int lgCode, int nbCouleurs){ //todo : à test
-        int [] randomcode = new int[lgCode];
+        int [] randomcode = initTab(lgCode,nbCouleurs-1);
         for (int i=0; i<lgCode;i++){
             Random r = new Random();
             randomcode[i] = r.nextInt(nbCouleurs);  //nombre aléatoire de type int supérieure ou égal à 0 et inférieur au nombre entier passé en paramètre
@@ -344,7 +344,11 @@ public class MasterMindBase {
             - sinon le nombre de codes proposés par le joueur humain          
     */
     public static int mancheHumain(int lgCode, char[] tabCouleurs, int numManche, int nbEssaisMax){
-
+        System.out.println("Vous êtes à la manche : "+numManche);
+        //créer nouveau code
+        //demander la proposition (propositionCodeHumain)
+        //vérifier la proposition
+        //si code humain faux recommencer en incrémentant nouvelle variable nbEssais de 1, si code humain vrai return nbr de codes proposés
         return lgCode;
     }
 
@@ -511,6 +515,7 @@ public class MasterMindBase {
      sinon met dans cod1 le code ne contenant que des "0" et retourne faux
      */
     public static boolean passeCodeSuivantLexicoCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){
+
         return false; //jai rajouté
     }
 
