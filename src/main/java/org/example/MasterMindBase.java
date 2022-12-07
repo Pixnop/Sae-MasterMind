@@ -515,7 +515,13 @@ public class MasterMindBase {
      sinon met dans cod1 le code ne contenant que des "0" et retourne faux
      */
     public static boolean passeCodeSuivantLexicoCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){
+        // remplir matrice cod avec ensemble possible (000000, 0000001, ... nbcouleur-1,nbcouleur-1,nbcouleur-1,nbcouleur-1 TAS CAPTE)
+        // rep doit être remplis de chaque réponse faite : matrice à 2 colonnes je bade x=2 y=nbcoupsmax ????
 
+
+        //cod1=plus petit prochain code compatible donc :
+        //si code 1 = 1234567, on va tester 1234568 pour vérif si possible avec les possibilités d'avant (estCompat vérif si compatible donc faire boucle avec estCompat dedans)
+        //
         return false; //jai rajouté
     }
 
