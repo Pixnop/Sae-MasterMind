@@ -620,6 +620,7 @@ public class MasterMindBase {
      */
     public static void main(String[] args){
         saisirCouleurs();
+        //test tel
 
     } // fin main
     //___________________________________________________________________
