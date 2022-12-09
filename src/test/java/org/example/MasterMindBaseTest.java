@@ -220,8 +220,9 @@ public class MasterMindBaseTest {
     public void testProfCodeAleat() {
         int[] code = MasterMindBase.codeAleat(1000, 6);
         for (int i = 0 ; i < 1000 ; i++) {
-            if ( ! (0 <= code[i] && code[i] <= 5) )
+            if ( ! (0 <= code[i] && code[i] <= 5) ){
                 assertTrue(true);
+            }
         }
         assertFalse(false);
     }

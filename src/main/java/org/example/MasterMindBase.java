@@ -519,7 +519,14 @@ public class MasterMindBase {
      */
     public static boolean passeCodeSuivantLexicoCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){
         // rep doit être remplis de chaque réponse faite : matrice à 2 colonnes je bade x=2 y=nbcoupsmax ????
+        /*
         cod1=passeCodeSuivantLexico(cod1,nbCouleurs);
+        tableau=initTab(cod1.length,0);
+
+        while (!estCompat(cod1, cod, rep,nbCoups,nbCouleurs) && cod1!=){ //cod1 différent de 00000..
+            cod1=passeCodeSuivantLexico(cod1,nbCouleurs);
+        }
+         */ //TODO c'est quoi ta merde la cod1 retour un boolean
         
 
         //cod1=plus petit prochain code compatible donc :
