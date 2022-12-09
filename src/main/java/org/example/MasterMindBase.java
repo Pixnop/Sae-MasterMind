@@ -343,7 +343,7 @@ public class MasterMindBase {
               s'il n'a toujours pas trouvé au bout du nombre maximum d'essais 
             - sinon le nombre de codes proposés par le joueur humain          
     */
-    public static int mancheHumain(int lgCode, char[] tabCouleurs, int numManche, int nbEssaisMax){
+    public static int mancheHumain(int lgCode, char[] tabCouleurs, int numManche, int nbEssaisMax){//fait
         System.out.println("Vous êtes à la manche : "+numManche);
         code=randomcode(lgCode,nbCouleurs);
         boolean verif;
@@ -359,8 +359,6 @@ public class MasterMindBase {
             }
         }
         return i;
-
-        //si code humain faux recommencer en incrémentant nouvelle variable nbEssais de 1, si code humain vrai return nbr de codes proposés
     }
 
     //____________________________________________________________
