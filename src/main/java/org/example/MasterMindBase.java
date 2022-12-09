@@ -345,6 +345,7 @@ public class MasterMindBase {
     */
     public static int mancheHumain(int lgCode, char[] tabCouleurs, int numManche, int nbEssaisMax){//fait
         System.out.println("Vous êtes à la manche : "+numManche);
+        /*//TODO j'ai mis en com trop d'erreur
         code=randomcode(lgCode,nbCouleurs);
         boolean verif;
         int i;
@@ -359,6 +360,8 @@ public class MasterMindBase {
             }
         }
         return i;
+         */
+        return lgCode;
     }
 
     //____________________________________________________________
@@ -529,15 +532,16 @@ public class MasterMindBase {
      */
 
     public static boolean passeCodeSuivantLexicoCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){ //fait
-        cod1=passeCodeSuivantLexico(cod1,nbCouleurs);
+         //TODO j'ai mis en com trop d'erreur
+        /*cod1=passeCodeSuivantLexico(cod1,nbCouleurs);
         tableau=initTab(cod1.length,0);
         do{
             cod1=passeCodeSuivantLexico(cod1,nbCouleurs);
             if (cod1==tableau){
-            return false;
+                return false;
             }
-            while (!estCompat(cod1, cod, rep,nbCoups,nbCouleurs))
-        }
+            while (!estCompat(cod1, cod, rep,nbCoups,nbCouleurs));
+        }*/
         return true;
     }
 
@@ -627,6 +631,53 @@ public class MasterMindBase {
         System.out.println(result);
         return result;
     }
+    //___________________________________________________________________
+
+    //.........................................................................
+    // EXTENSION
+    //.........................................................................
+
+    /** pré-requis : cod est une matrice, rep est une matrice à 2 colonnes,
+     0 <= nbCoups < cod.length, nbCoups < rep.length et
+     les éléments de cod sont des entiers de 0 à tabCouleurs.length -1
+     action : affiche les nbCoups premières lignes de cod (sous forme
+     de mots en utilisant le tableau tabCouleurs) et de rep
+     */
+    public static void affichePlateau(int [][] cod, int [][] rep, int nbCoups, char[] tabCouleurs){
+        System.out.println("nombre de coups: " + nbCoups);
+        for (int i = 0; i < cod.length; i++) {
+            System.out.print("L"+(i+1)+": ");
+            for (int j = 0; j < cod[0].length; j++) {
+                System.out.print(tabCouleurs[cod[i][j]-1] + "\t");
+            }
+            System.out.println();
+        }
+        for (int j = 0; j < cod[0].length+1; j++) {
+            System.out.print("--\t");
+        }
+        System.out.println();
+        for (int i = 0; i < rep.length; i++) {
+            if(i==0){
+                System.out.print("BP: ");
+            }else{System.out.print("MP: ");}
+            for (int j = 0; j < rep[0].length; j++) {
+                System.out.print(rep[i][j] + "\t");
+            }
+            System.out.println();
+        }
+
+    }
+
+
+    /** pré-requis : cod est une matrice, rep est une matrice à 2 colonnes,
+            0 <= nbCoups < cod.length, nbCoups < rep.length,
+    les éléments de cod sont des entiers de 0 à tabCouleurs.length -1
+    et codMot est incorrect ou incompatible avec les nbCoups
+    premières lignes de cod et de rep
+    action : affiche les erreurs d’incorrection ou d’incompatibilité
+    */
+    public static void afficheErreurs (String codMot, int [][] cod, int [][] rep, int nbCoups, int lgCode, char[] tabCouleurs) {
+    }
 
     //___________________________________________________________________
 
@@ -646,7 +697,19 @@ public class MasterMindBase {
      Toute donnée incorrecte doit être re-saisie jusqu'à ce qu'elle soit correcte.
      */
     public static void main(String[] args){
-        saisirCouleurs();
+        int [][] cod = {
+                {1,2,3,4,5,6,7,8},
+                {1,2,3,4,5,6,7,8},
+                {1,2,3,4,5,6,7,8},
+                {1,2,3,4,5,6,7,8}
+        };
+        int [][] rep = {
+                {0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0},
+        };
+        int nbCoups = 8;
+        char[] tabCouleurs = {'a','b','c','d','e','f','g','h'};
+        affichePlateau(cod,rep,nbCoups, tabCouleurs);
         //test tel
 
     } // fin main
