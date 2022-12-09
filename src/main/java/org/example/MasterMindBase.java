@@ -345,11 +345,19 @@ public class MasterMindBase {
     */
     public static int mancheHumain(int lgCode, char[] tabCouleurs, int numManche, int nbEssaisMax){
         System.out.println("Vous êtes à la manche : "+numManche);
-        //créer nouveau code
+        code=randomcode(lgCode,nbCouleurs);
+        for (int i=0;i<nbEssaisMax;i++){
+            resultat=nbBienMalPlaces(propositionCodeHumain(nbCoups,lgCode,tabCouleurs),code,nbCouleurs);
+            if (resulat[0]=lgCode){
+                System.out.print("bien joué le code était bien : " + entiersVersMot(code));
+            }
+            else {
+                System.out.print("Il y a " +resultat[0]+ "bien placés et "+ resultat[1]+ "mal placés \n");
+            }
+        }
         //demander la proposition (propositionCodeHumain)
         //vérifier la proposition
         //si code humain faux recommencer en incrémentant nouvelle variable nbEssais de 1, si code humain vrai return nbr de codes proposés
-        return lgCode;
     }
 
     //____________________________________________________________
