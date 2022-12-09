@@ -519,7 +519,7 @@ public class MasterMindBase {
      */
     public static boolean passeCodeSuivantLexicoCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){
         // rep doit être remplis de chaque réponse faite : matrice à 2 colonnes je bade x=2 y=nbcoupsmax ????
-        cod1=passeCodeSuivantLexico(cod1,nbCouleurs);
+        //cod1=passeCodeSuivantLexico(cod1,nbCouleurs); TODO je comprend pas ce que tu veux faire avec ca
         
 
         //cod1=plus petit prochain code compatible donc :
@@ -534,7 +534,7 @@ public class MasterMindBase {
     // manche Ordinateur
 
     /** pré-requis : numManche >= 2
-	action : effectue la (numManche)ème  manche où l'humain est le codeur et l'ordinateur le décodeur
+	action : effectue la (numManche)ème manche où l'humain est le codeur et l'ordinateur le décodeur
 	(le paramètre numManche ne sert que pour l'affichage)
 	résultat : 
             - 0 si le programme détecte une erreur dans les réponses du joueur humain
