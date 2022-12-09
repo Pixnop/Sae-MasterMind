@@ -517,22 +517,18 @@ public class MasterMindBase {
      cod1 selon cet ordre et compatible avec les nbCoups premières lignes de cod et rep si ce code existe,
      sinon met dans cod1 le code ne contenant que des "0" et retourne faux
      */
-    public static boolean passeCodeSuivantLexicoCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){
-        // rep doit être remplis de chaque réponse faite : matrice à 2 colonnes je bade x=2 y=nbcoupsmax ????
-        /*
+
+    public static boolean passeCodeSuivantLexicoCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){ //fait
         cod1=passeCodeSuivantLexico(cod1,nbCouleurs);
         tableau=initTab(cod1.length,0);
-
-        while (!estCompat(cod1, cod, rep,nbCoups,nbCouleurs) && cod1!=){ //cod1 différent de 00000..
+        do{
             cod1=passeCodeSuivantLexico(cod1,nbCouleurs);
+            if (cod1==tableau){
+            return false;
+            }
+            while (!estCompat(cod1, cod, rep,nbCoups,nbCouleurs))
         }
-         */ //TODO c'est quoi ta merde la cod1 retour un boolean
-        
-
-        //cod1=plus petit prochain code compatible donc :
-        //si code 1 = 1234567, on va tester 1234568 pour vérif si possible avec les possibilités d'avant (estCompat vérif si compatible donc faire boucle avec estCompat dedans)
-        //
-        return false; //jai rajouté
+        return true;
     }
 
 
