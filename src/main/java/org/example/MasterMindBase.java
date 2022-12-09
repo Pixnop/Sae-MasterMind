@@ -370,11 +370,12 @@ public class MasterMindBase {
     /** prérequis : les éléments de cod sont des entiers de 0 à tabCouleurs.length-1
 	résultat : le code cod sous forme de mot d'après le tableau tabCouleurs
     */
-    public static String entiersVersMot(int[] cod, char[] tabCouleurs){//fait
+    public static String entiersVersMot(int[] cod, char[] tabCouleurs){//PAS FAIT faut sortir des mots
         String code = "";
-        for (int i=0; i<cod.length; i++) {
+        for (int i=0; i<cod.length-1; i++) {
             code += tabCouleurs[cod[i]] + ",";
         }
+        code += tabCouleurs[cod[cod.length-1]];
         return code;
     }
 
