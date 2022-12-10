@@ -665,6 +665,8 @@ public class MasterMindBase {
      Toute donnée incorrecte doit être re-saisie jusqu'à ce qu'elle soit correcte.
      */
     public static void main(String[] args){
+        int lgCode, numManche, nbEssaisMax;
+        char[] tabCouleurs;
         Scanner scanner=new Scanner(System.in);
         System.out.print("Voulez vous est de codificateur (1) ou le décodeur (2) : ");
         int rep = scanner.nextInt();
@@ -672,7 +674,11 @@ public class MasterMindBase {
             System.out.print("Vous avez choisi codificateur, es bien ce que vous voulez ? (y/n) : ");
             String verif = scanner.next();
             if(Objects.equals(verif, "y")){
-
+                tabCouleurs = saisirCouleurs();
+                numManche = saisirEntierPairPositif();
+                nbEssaisMax = saisirEntierPositif();
+                lgCode = saisirEntierPositif();
+                mancheOrdinateur(lgCode,tabCouleurs,numManche, nbEssaisMax);
             }else {
                 main(args);
             }
@@ -680,7 +686,11 @@ public class MasterMindBase {
             System.out.print("Vous avez choisi décodeur, es bien ce que vous voulez ? (y/n) : ");
             String verif = scanner.next();
             if(Objects.equals(verif, "y")){
-
+                tabCouleurs = saisirCouleurs();
+                numManche = saisirEntierPairPositif();
+                nbEssaisMax = saisirEntierPositif();
+                lgCode = saisirEntierPositif();
+                mancheHumain(lgCode,tabCouleurs,numManche, nbEssaisMax);
             }else {
                 main(args);
             }
