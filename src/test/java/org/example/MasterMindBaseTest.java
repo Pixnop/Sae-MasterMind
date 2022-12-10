@@ -245,6 +245,144 @@ public class MasterMindBaseTest {
         else
             assertFalse(false);
     }
+    @Test
+    public void testProfNbBienPlaces() {
+
+        int[] t1 = {1,0,2,0};
+        int[] t2 = {0,1,0,0};
+
+        int[] t3 = {2,2,2};
+        int[] t4 = {2,2,2};
+
+        int[] t5 = {0,1,2};
+        int[] t6 = {1,2,0};
+
+        int[] t7 = {0,1,0,1,1,0,1,0};
+        int[] t8 = {1,1,1,0,0,0,1,0};
+
+        double res = 0;
+        if (MasterMindBase.nbBienPlaces(t1,t2)  == 1)
+            res+=0.25;
+
+        if (MasterMindBase.nbBienPlaces(t3,t4)  == 3)
+            res+=0.25;
+
+        if (MasterMindBase.nbBienPlaces(t5,t6)  == 0)
+            res+=0.25;
+
+        if (MasterMindBase.nbBienPlaces(t7,t8)  == 4)
+            res+=0.25;
+
+        if(res==1) {
+            assertTrue(true);
+        } else {
+            assertFalse(false);
+        }
+
+    }
+
+    @Test
+    public void testProfTabFrequence1(){
+        int[]t1 = {0,1,0,1};
+        int nbc1 = 2;
+        int[]res1= {2,2};
+
+        int[]t2 = {0,1,0,1};
+        int nbc2 = 3;
+        int[]res2= {2,2,0};
+
+        double res=0;
+        if(Arrays.equals(MasterMindBase.tabFrequence(t1,nbc1),res1))
+            res+=0.5;
+
+        if(Arrays.equals(MasterMindBase.tabFrequence(t2,nbc2),res2))
+            res+=0.5;
+
+        if(res==1) {
+            assertTrue(true);
+        } else {
+            assertFalse(false);
+        }
+    }
+
+
+
+    @Test
+    public void testProfNbCommuns1(){
+
+        //tests avec longueur des tableaux supérieure à nb couleurs
+        int[]t1a = {0,1,2};
+        int[]t1b = {2,0,1};
+        int nbc1 = 3;
+
+        int[]t2a = {0,0,1,1,2,2};
+        int[]t2b = {2,2,2,2,2,2};
+        int nbc2 = 3;
+
+        int[]t3a = {0,0,0,0,0,0,0,1,1,2,2,2,2,2,2,2,2,2};
+        int[]t3b = {1,1,1,1,1,2,2,2,0,0};
+        int nbc3 = 3;
+
+        int[]t4a = {0,0,0,0,0,0,0,1,1,2,2,2,2,2,2,2,2,2};
+        int[]t4b = {0,0,0,0,0,0,0,1,1,2,2,2,2,2,2,2,2,2};
+        int nbc4 = 3;
+
+        double res = 0;
+        if(MasterMindBase.nbCommuns(t1a,t1b,nbc1)==3)
+            res+=0.25;
+        if(MasterMindBase.nbCommuns(t2a,t2b,nbc2)==2)
+            res+=0.25;
+        if(MasterMindBase.nbCommuns(t3a,t3b,nbc3)==7)
+            res+=0.25;
+        if(MasterMindBase.nbCommuns(t4a,t4b,nbc4)==t4a.length)
+            res+=0.25;
+
+        if(res==1) {
+            assertTrue(true);
+        } else {
+            assertFalse(false);
+        }
+    }
+
+    @Test
+    public void testProfNbBienMalPlaces1(){
+        int[]t1a = {0,1,2};
+        int[]t1b = {2,0,1};
+        int nbc1 = 3;
+        int[]res1 = {0,3};
+
+
+        int[]t2a = {0,0,1,1,2,2};
+        int[]t2b = {2,2,2,2,2,2};
+        int nbc2 = 3;
+        int[]res2 = {2,0};
+
+        int[]t3a = {1,0,2,0};
+        int[]t3b = {0,1,0,0};
+        int nbc3 = 3;
+        int[]res3 = {1,2};
+        // x   x   x x     x x     x       x
+        int[]t4a = {0,0,0,0,0,0,0,1,1,2,2,2,2,2,2,2,2,2};
+        int[]t4b = {0,2,0,1,0,0,2,2,1,2,0,1,2,0,0,0,2,1};
+        int nbc4 = 3;
+        int[]res4 = {8,7};
+
+        double res = 0;
+        if(Arrays.equals(MasterMindBase.nbBienMalPlaces(t1a,t1b,nbc1),res1))
+            res+=0.25;
+        if(Arrays.equals(MasterMindBase.nbBienMalPlaces(t2a,t2b,nbc2),res2))
+            res+=0.25;
+        if(Arrays.equals(MasterMindBase.nbBienMalPlaces(t3a,t3b,nbc3),res3))
+            res+=0.25;
+        if(Arrays.equals(MasterMindBase.nbBienMalPlaces(t4a,t4b,nbc4),res4))
+            res+=0.25;
+
+        if(res==1) {
+            assertTrue(true);
+        } else {
+            assertFalse(false);
+        }
+    }
 
     @Test
     public void testProfRepCorrecte() {
