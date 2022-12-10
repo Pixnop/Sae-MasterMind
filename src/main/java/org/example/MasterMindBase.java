@@ -531,8 +531,7 @@ public class MasterMindBase {
      sinon met dans cod1 le code ne contenant que des "0" et retourne faux
      */
 
-    public static boolean passeCodeSuivantLexicoCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){ //revérifier il est parfait
-         //TODO j'ai mis en com trop d'erreur
+    public static boolean passeCodeSuivantLexicoCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){ //fait //todo : à test
         do{
             if (!passeCodeSuivantLexico(cod1,nbCouleurs)){
                 return false;
@@ -557,7 +556,15 @@ public class MasterMindBase {
             - sinon le nombre de codes proposés par l'ordinateur
     */
     public static int mancheOrdinateur(int lgCode,char[] tabCouleurs, int numManche, int nbEssaisMax) { //vérifie si chaque possibilité est compatible avec les différentes réponses
+        boolean finis=false;
+        int resultat=0;
 
+        while (!finis){
+
+            if (resultat>nbEssaisMax || !passeCodeSuivantLexicoCompat(cod1,) ||) {
+                finis = true;
+            }
+        }
         return lgCode;
     }
 
