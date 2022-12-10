@@ -139,11 +139,10 @@ public class MasterMindBase {
         int verif=0;
         boolean correct=true;
         for (int i=0; i<lgCode; i++){  //incrémente verif de 1 chaque fois que le caractère est présent dans string
-            for (int j=0; j<lgCode;j++) {
-                String[] listeresultat = codMot.split(" ");
-                if (estPresent(tabCouleurs,listeresultat[i].charAt(0))) {
-                    verif++;
-                }
+            char valeurChar= codMot.charAt(i);
+            System.out.print(valeurChar);
+            if (estPresent(tabCouleurs,valeurChar)) {
+                verif++;
             }
         }
         if (verif!=lgCode-1){ //si verif n'a pas la meme valeur de la longueur du code, c'est faux
