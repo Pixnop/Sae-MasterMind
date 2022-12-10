@@ -491,28 +491,9 @@ public class MasterMindBase {
      c'est-à-dire que si cod1 était le code secret, les réponses aux nbCoups premières
      propositions de cod seraient les nbCoups premières réponses de rep resp.
      */
-    public static boolean estCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){ //TODO il faut enlever le break et verif ci ca marche
-        int i,j,k;
-        boolean b=true;
-        for(i=0;i<nbCoups;i++){
-            int [] rep1=new int[2];
-            for(j=0;j<cod1.length;j++){
-                if(cod[i][j]==cod1[j]){
-                    rep1[0]++;
-                }else{
-                    for(k=0;k<cod1.length;k++){
-                        if(cod[i][j]==cod1[k]){
-                            rep1[1]++;
-                            break;
-                        }
-                    }
-                }
-            }
-            if((rep1[0]!=rep[i][0])||(rep1[1]!=rep[i][1])){
-                b=false;
-            }
-        }
-        return b;
+    public static boolean estCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){//TODO je comprend r
+
+        return true;
     }
 
     //___________________________________________________________________
