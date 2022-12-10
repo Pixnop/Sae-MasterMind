@@ -8,7 +8,6 @@ public class MasterMindBase {
     //.........................................................................
     // OUTILS DE BASE
     //.........................................................................
-    
     // fonctions classiques sur les tableaux
 
     /** pré-requis : nb >= 0
@@ -536,7 +535,6 @@ public class MasterMindBase {
             if (!passeCodeSuivantLexico(cod1,nbCouleurs)){
                 return false;
             }
-
         }while (!estCompat(cod1, cod, rep,nbCoups,nbCouleurs));
         return true;
     }
@@ -556,15 +554,22 @@ public class MasterMindBase {
             - sinon le nombre de codes proposés par l'ordinateur
     */
     public static int mancheOrdinateur(int lgCode,char[] tabCouleurs, int numManche, int nbEssaisMax) { //vérifie si chaque possibilité est compatible avec les différentes réponses
+        /*
         boolean finis=false;
         int resultat=0;
-
+        int [] cod1= initTab(lgCode,0);
+        int [][] rep= new int[lgCode][nbEssaisMax];
+        //proposer 00000
+        //boucle while tant qu'aucun des trois tirets n'a été jaajé
+        //Utiliser reponseHumain pour remplir le tableau rep (reponseHumain retourne [] int)
+        //passeCodeSuivantLexicoCompat à chaque tour (cod1 devrait logiquement évoluer)
+        //
         while (!finis){
 
             if (resultat>nbEssaisMax || !passeCodeSuivantLexicoCompat(cod1,) ||) {
                 finis = true;
             }
-        }
+        }*/
         return lgCode;
     }
 
