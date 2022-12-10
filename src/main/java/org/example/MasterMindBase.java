@@ -342,25 +342,23 @@ public class MasterMindBase {
               s'il n'a toujours pas trouvé au bout du nombre maximum d'essais 
             - sinon le nombre de codes proposés par le joueur humain          
     */
-    public static int mancheHumain(int lgCode, char[] tabCouleurs, int numManche, int nbEssaisMax){//fait
-        System.out.println("Vous êtes à la manche : "+numManche);
-        /*//TODO j'ai mis en com trop d'erreur
-        code=randomcode(lgCode,nbCouleurs);
-        boolean verif;
+    public static int mancheHumain(int lgCode, char[] tabCouleurs, int numManche, int nbEssaisMax){ //fait //todo : à tester
+        int [] code=codeAleat(lgCode,tabCouleurs.length);   //notre code caché
+        boolean trouver=false;                              //pour sortie de boucle si trouvée
+        int [] reponse;                                     //pour mettre la réponse avant de l'envoyer à l'utilisateur
         int i;
-        for (i=0;i<nbEssaisMax || !verif;i++){
-            resultat=nbBienMalPlaces(propositionCodeHumain(nbCoups,lgCode,tabCouleurs),code,nbCouleurs);
-            if (resulat[0]=lgCode){
-                System.out.print("bien joué le code était bien : " + entiersVersMot(code));
-                verif=true;
+        System.out.println("Vous êtes à la manche : "+numManche);
+        for (i=0;i<nbEssaisMax || !trouver;i++){
+            reponse=nbBienMalPlaces(propositionCodeHumain(i,lgCode,tabCouleurs),code,tabCouleurs.length);  //récupère la réponse de l'utilisateur
+            if (reponse[0] == lgCode){
+                System.out.print("bien joué le code était bien : " + entiersVersMot(code, tabCouleurs));
+                trouver=true;
             }
             else {
-                System.out.print("Il y a " +resultat[0]+ "bien placés et "+ resultat[1]+ "mal placés \n");
+                System.out.print("Il y a " +reponse[0]+ "bien placés et "+ reponse[1]+ "mal placés \n");
             }
         }
         return i;
-         */
-        return lgCode;
     }
 
     //____________________________________________________________
