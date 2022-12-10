@@ -531,17 +531,14 @@ public class MasterMindBase {
      sinon met dans cod1 le code ne contenant que des "0" et retourne faux
      */
 
-    public static boolean passeCodeSuivantLexicoCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){ //fait
+    public static boolean passeCodeSuivantLexicoCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){ //revérifier il est parfait
          //TODO j'ai mis en com trop d'erreur
-        /*cod1=passeCodeSuivantLexico(cod1,nbCouleurs);
-        tableau=initTab(cod1.length,0);
         do{
-            cod1=passeCodeSuivantLexico(cod1,nbCouleurs);
-            if (cod1==tableau){
+            if (!passeCodeSuivantLexico(cod1,nbCouleurs)){
                 return false;
             }
-            while (!estCompat(cod1, cod, rep,nbCoups,nbCouleurs));
-        }*/
+
+        }while (!estCompat(cod1, cod, rep,nbCoups,nbCouleurs));
         return true;
     }
 
