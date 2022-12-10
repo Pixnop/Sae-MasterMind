@@ -692,21 +692,29 @@ public class MasterMindBase {
      Toute donnée incorrecte doit être re-saisie jusqu'à ce qu'elle soit correcte.
      */
     public static void main(String[] args){
-        int [][] cod = {
-                {1,2,3,4,5,6,7,8},
-                {1,2,3,4,5,6,7,8},
-                {1,2,3,4,5,6,7,8},
-                {1,2,3,4,5,6,7,8}
-        };
-        int [][] rep = {
-                {0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0},
-        };
-        int nbCoups = 8;
-        char[] tabCouleurs = {'a','b','c','d','e','f','g','h'};
-        affichePlateau(cod,rep,nbCoups, tabCouleurs);
-        //test tel
+        Scanner scanner=new Scanner(System.in);
+        System.out.print("Voulez vous est de codificateur (1) ou le décodeur (2) : ");
+        int rep = scanner.nextInt();
+        if(rep==1){
+            System.out.print("Vous avez choisi codificateur, es bien ce que vous voulez ? (y/n) : ");
+            String verif = scanner.next();
+            if(Objects.equals(verif, "y")){
 
+            }else {
+                main(args);
+            }
+        }else if (rep==2){
+            System.out.print("Vous avez choisi décodeur, es bien ce que vous voulez ? (y/n) : ");
+            String verif = scanner.next();
+            if(Objects.equals(verif, "y")){
+
+            }else {
+                main(args);
+            }
+        }else {
+            System.out.println("choisissez 1 ou 2");
+            main(args);
+        }
     } // fin main
     //___________________________________________________________________
 
