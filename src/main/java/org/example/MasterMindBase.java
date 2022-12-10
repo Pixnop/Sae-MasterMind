@@ -552,8 +552,7 @@ public class MasterMindBase {
             - sinon le nombre de codes proposés par l'ordinateur
     */
     public static int mancheOrdinateur(int lgCode,char[] tabCouleurs, int numManche, int nbEssaisMax) { //vérifie si chaque possibilité est compatible avec les différentes réponses
-        /*
-        boolean finis=false;
+        /*boolean finis=false;
         int resultat=0;
         int [] cod1= initTab(lgCode,0);
         int [][] rep= new int[lgCode][nbEssaisMax];
