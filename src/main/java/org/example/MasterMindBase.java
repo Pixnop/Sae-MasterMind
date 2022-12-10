@@ -537,7 +537,6 @@ public class MasterMindBase {
         return true;
     }
 
-
     //___________________________________________________________________
     
     // manche Ordinateur
@@ -551,24 +550,33 @@ public class MasterMindBase {
               s'il n'a toujours pas trouvé au bout du nombre maximum d'essais 
             - sinon le nombre de codes proposés par l'ordinateur
     */
-    public static int mancheOrdinateur(int lgCode,char[] tabCouleurs, int numManche, int nbEssaisMax) { //vérifie si chaque possibilité est compatible avec les différentes réponses
-        /*boolean finis=false;
+    public static int mancheOrdinateur(int lgCode,char[] tabCouleurs, int numManche, int nbEssaisMax) { //fait
+        boolean finis=false;
+        int nbressai=0;
         int resultat=0;
         int [] cod1= initTab(lgCode,0);
-        int [][] rep= new int[lgCode][nbEssaisMax];
-        //proposer 00000
-        //boucle while tant qu'aucun des trois tirets n'a été jaajé
-        //Utiliser reponseHumain pour remplir le tableau rep (reponseHumain retourne [] int)
-        //passeCodeSuivantLexicoCompat à chaque tour (cod1 devrait logiquement évoluer)
-        //reponsehumain à utiliser
+        int [][] codes= new int[lgCode][nbEssaisMax];
+        int [] reponseactuelle=new int [2];
+        int [][] reps = new int [2][nbEssaisMax];
+
 
         while (!finis){
+            nbressai++;
+            reponseactuelle=reponseHumain(lgCode);
+            reps[0][nbressai]=reponseactuelle[0];
+            reps[1][nbressai]=reponseactuelle[1];
 
-            if (resultat>nbEssaisMax || !passeCodeSuivantLexicoCompat(cod1,) ||) {
-                finis = true;
+            if (nbressai>nbEssaisMax || reponseactuelle[0]==lgCode) {
+                finis=true;
+                resultat=nbressai;
             }
-        }*/
-        return lgCode;
+            else if (!passeCodeSuivantLexicoCompat(cod1,codes,reps, nbressai,tabCouleurs.length)){
+                finis=true;
+                resultat=0;
+            }
+        }
+
+        return resultat;
     }
 
     //___________________________________________________________________
