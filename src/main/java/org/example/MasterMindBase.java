@@ -224,38 +224,11 @@ public class MasterMindBase {
 	Par exemple, si cod = (1,0,2,0) et nbCouleurs = 6 la fonction retourne (2,1,1,0,0,0)
     */
     public static int[] tabFrequence(int[] cod, int nbCouleurs){  //fait
-        int nbr=0;
-        int [] codbis = new int [nbCouleurs];
-        for (int i=0; i<nbCouleurs;i++){ //donne la valeur de l'ensemble des éléments de cod à nbr et met en place le tableau codbis
-            if (i<cod.length) {
-                nbr = nbr + cod[i];
-                codbis[i] = cod[i];
-            }
-            else {
-                codbis[i]=0;
-            }
+        int[]resultat=initTab(nbCouleurs,0);
+        for (int i=0;i<cod.length;i++){
+            resultat[cod[i]]++;
         }
-
-        while(nbr-cod.length!=0){ //va comparer la somme des éléments de codbis (nbr) au nombre voulu (cod.length)
-            int j=0;
-            while (codbis[j]!=0){ // tant que celui ci est inférieur: on remplace le prochain 0 de codbis par 1
-                j++;
-            }
-            codbis[j]=1;
-            nbr++;
-        }
-
-        for(int i=0;i<codbis.length/2;i++){  //met codbis dans l'ordre décroissant
-            for (int j=0;j<codbis.length/2;j++){
-                if (cod[j]>codbis[i]){
-                    int imax=codbis[j];
-                    codbis[j]=codbis[i];
-                    codbis[i]=imax;
-                }
-            }
-        }
-
-        return codbis;
+        return resultat;
     }
 
     //____________________________________________________________
