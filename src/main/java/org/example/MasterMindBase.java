@@ -560,7 +560,8 @@ public class MasterMindBase {
         //boucle while tant qu'aucun des trois tirets n'a été jaajé
         //Utiliser reponseHumain pour remplir le tableau rep (reponseHumain retourne [] int)
         //passeCodeSuivantLexicoCompat à chaque tour (cod1 devrait logiquement évoluer)
-        //
+        //reponsehumain à utiliser
+
         while (!finis){
 
             if (resultat>nbEssaisMax || !passeCodeSuivantLexicoCompat(cod1,) ||) {
@@ -613,12 +614,12 @@ public class MasterMindBase {
     //___________________________________________________________________
     
     /** pré-requis : aucun
-	action : demande au joueur humain de saisir le nombre de couleurs (stricement positif), 
+	action : demande au joueur humain de saisir le nombre de couleurs (strictement positif),
                  puis les noms de couleurs aux initiales différentes, 
-	         avec re-saisie éventuelle jusqu'à ce qu'elle soit correcte
+	         avec re-saisie éventuelle jusqu'à ce qu'elle soit correct
 	résultat : le tableau des initiales des noms de couleurs saisis
     */
-    public static char[] saisirCouleurs() {
+    public static char[] saisirCouleurs() { //a utiliser dans main
         Scanner scanner = new Scanner(System.in);
         boolean verif = true;
         int nbCouleurs = 0;
