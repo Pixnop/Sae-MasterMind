@@ -135,23 +135,23 @@ public class MasterMindBase {
 	action : si codMot n'est pas correct, affiche pourquoi
 	résultat : vrai ssi codMot est correct, c'est-à-dire de longueur lgCode et ne contenant que des éléments de tabCouleurs
     */
-    public static boolean codeCorrect(String codMot, int lgCode, char[] tabCouleurs){ //todo : à test + rajouter possibilité vert et violet avec plusGrandIndice ?
+    public static boolean codeCorrect(String codMot, int lgCode, char[] tabCouleurs){ //todo : pas besoin de split en regex, AABBCC par exemple
         int verif=0;
         boolean correct=true;
         for (int i=0; i<lgCode; i++){  //incrémente verif de 1 chaque fois que le caractère est présent dans string
             for (int j=0; j<lgCode;j++) {
-                String[] listestrings = codMot.split(",");
-                if (listestrings[i].charAt(0) == tabCouleurs[j]) {
+                String[] listeresultat = codMot.split(" ");
+                if (estPresent(tabCouleurs,listeresultat[i].charAt(0))) {
                     verif++;
                 }
             }
         }
-        if (verif!=lgCode){ //si verif n'a pas la meme valeur de la longueur du code, c'est faux
+        if (verif!=lgCode-1){ //si verif n'a pas la meme valeur de la longueur du code, c'est faux
             System.out.print("les éléments de votre code ne sont pas tous présents dans les possibilitées \n");
             correct=false;
         }
 
-        else if (tabCouleurs.length!=lgCode){ // verifie la taille du tableau ^^
+        else if (tabCouleurs.length!=lgCode){ // verifie la taille du tableau
             System.out.print("La longueur de votre code n'est pas bonne \n");
             correct=false;
         }
