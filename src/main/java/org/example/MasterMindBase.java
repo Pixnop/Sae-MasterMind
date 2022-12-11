@@ -611,8 +611,8 @@ public class MasterMindBase {
      */
     public static void affichePlateau(int [][] cod, int [][] rep, int nbCoups, char[] tabCouleurs){
         System.out.println("nombre de coups : " + nbCoups);
-        System.out.println(Arrays.deepToString(cod));
-        System.out.println(Arrays.deepToString(rep));
+        System.out.println("cod = " + Arrays.deepToString(cod));
+        System.out.println("rep = " + Arrays.deepToString(rep));
     }
 
 
