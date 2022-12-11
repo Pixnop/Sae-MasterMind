@@ -426,15 +426,17 @@ public class MasterMindBase {
 
     public static boolean passeCodeSuivantLexico(int[] cod1, int  nbCouleurs) { //fait
         int i = 1;
-        while (i<cod1.length) {
+        boolean existe=false;
+        while (i<cod1.length && !existe) {
             if (cod1[cod1.length-i] < (nbCouleurs - 1)) {
                 cod1[cod1.length-i]++;
+                existe=true;
             } else {
-                cod1[i] = 0;
+                cod1[cod1.length-i]=0;
             }
             i++;
         }
-        boolean existe = (cod1 == initTab(cod1.length, 0));
+        System.out.print("fin lexico"+ existe);
         return existe;
     }
         /*for (int i = 1;i < cod1.length+1 ;i++ ) {
