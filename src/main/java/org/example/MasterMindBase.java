@@ -311,7 +311,6 @@ public class MasterMindBase {
         int i;
         System.out.println("Vous êtes à la manche : "+numManche);
         for (i=0;i<nbEssaisMax || !trouver;i++){
-            System.out.println(Arrays.toString(code));
             reponse=nbBienMalPlaces(propositionCodeHumain(i,lgCode,tabCouleurs),code,tabCouleurs.length);  //récupère la réponse de l'utilisateur
             if (reponse[0] == lgCode){
                 System.out.print("bien joué le code était bien : " + entiersVersMot(code, tabCouleurs));
