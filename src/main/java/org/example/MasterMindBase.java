@@ -508,6 +508,7 @@ public class MasterMindBase {
         System.out.print("Début de la manche n°"+numManche+" \n");
         while (!finis){
             System.out.print(entiersVersMot(cod1,tabCouleurs)+ "\n");
+            affichePlateau(codes,reps,nbressai,tabCouleurs);
             reponseactuelle=reponseHumain(lgCode);
             reps[0][nbressai]=reponseactuelle[0];
             reps[1][nbressai]=reponseactuelle[1];
