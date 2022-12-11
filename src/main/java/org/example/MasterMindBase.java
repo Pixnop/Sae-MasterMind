@@ -421,22 +421,19 @@ public class MasterMindBase {
      des codes à valeurs de 0 à nbCouleurs-1) et retourne vrai si ce code existe,
      sinon met dans cod1 le code ne contenant que des "0" et retourne faux
      */
-     // 4 4 4 3 : 4 couleurs différente
+
     public static boolean passeCodeSuivantLexico(int[] cod1, int  nbCouleurs){ //fait
         boolean existe = false;
-        int compteur=0;
         for (int i=cod1.length-1; i>0 && !existe;i--){
-            boolean b = cod1[i] < nbCouleurs;
-            if (b){
+            if (cod1[i] < nbCouleurs-1){
                 cod1[i]++;
                 existe=true;
             }
             else{
                 cod1[i]=0;
-                compteur++;
             }
         }
-        existe=compteur<cod1.length;
+        existe=(cod1==initTab(cod1.length,0));
         return existe;
     }
 
@@ -476,13 +473,16 @@ public class MasterMindBase {
      sinon met dans cod1 le code ne contenant que des "0" et retourne faux
      */
 
+
     public static boolean passeCodeSuivantLexicoCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){ //fait //todo : à test
         do{
             if (!passeCodeSuivantLexico(cod1,nbCouleurs)){
                 return false;
             }
+            else {
+                return true;
+            }
         }while (!estCompat(cod1, cod, rep,nbCoups,nbCouleurs));
-        return true;
     }
 
     //___________________________________________________________________
@@ -641,6 +641,7 @@ public class MasterMindBase {
     action : affiche les erreurs d’incorrection ou d’incompatibilité
     */
     public static void afficheErreurs (String codMot, int [][] cod, int [][] rep, int nbCoups, int lgCode, char[] tabCouleurs) {
+
     }
 
     //___________________________________________________________________
@@ -669,7 +670,7 @@ public class MasterMindBase {
         tabCouleurs = saisirCouleurs();
         System.out.print("saisie nombre de manche : ");
         numManche = saisirEntierPairPositif();
-        System.out.print("saisie nombre d'essaie maximum : ");
+        System.out.print("saisie nombre d'essais maximum : ");
         nbEssaisMax = saisirEntierPositif();
         System.out.print("saisie nombre de ligne : "); //TODO faire en sorte que le nombre de ligne sois - ou + que nombre de couleur
         lgCode = saisirEntierPositif();
