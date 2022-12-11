@@ -615,7 +615,7 @@ public class MasterMindBase {
         for (int i = 0; i < cod.length; i++) {
             System.out.print("L"+(i+1)+": ");
             for (int j = 0; j < cod[0].length; j++) {
-                System.out.print(tabCouleurs[cod[i][j]-1] + "\t");
+                System.out.print(tabCouleurs[cod[i][j]] + "\t"); //jai enlevé le -1
             }
             System.out.println();
         }
