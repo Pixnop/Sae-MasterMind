@@ -511,7 +511,6 @@ public class MasterMindBase {
             reponseactuelle=reponseHumain(lgCode);
             reps[nbressai][0]=reponseactuelle[0];
             reps[nbressai][1]=reponseactuelle[1];
-            affichePlateau(codes,reps,nbressai,tabCouleurs);
             if (nbressai>=nbEssaisMax || reponseactuelle[0]==lgCode) {
                 finis=true;
                 resultat=nbressai;
@@ -631,9 +630,7 @@ public class MasterMindBase {
             }
             System.out.println();
         }
-
     }
-
 
     /** pré-requis : cod est une matrice, rep est une matrice à 2 colonnes,
             0 <= nbCoups < cod.length, nbCoups < rep.length,
