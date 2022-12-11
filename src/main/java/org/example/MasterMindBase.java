@@ -511,7 +511,7 @@ public class MasterMindBase {
         while (!finis){
             System.out.print(entiersVersMot(cod1,tabCouleurs)+ "\n");
             reponseactuelle=reponseHumain(lgCode);
-            reps[nbressai][0]=reponseactuelle[0];
+            reps[nbressai][0]=reponseactuelle[0]; //TODO erreur ici aussi "Index 2 out of bounds for length 2"
             reps[nbressai][1]=reponseactuelle[1];
             affichePlateau(codes,reps,nbressai,tabCouleurs);
             if (nbressai>=nbEssaisMax || reponseactuelle[0]==lgCode) {
