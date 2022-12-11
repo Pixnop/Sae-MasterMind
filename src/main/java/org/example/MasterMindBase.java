@@ -436,7 +436,6 @@ public class MasterMindBase {
             }
             i++;
         }
-        System.out.print(cod1[0]+ "" + cod1[1] +  "" +cod1[2] +  "" +cod1[3]);    // ---------------------------------test --------------------
         return existe;
     }
 
@@ -516,7 +515,7 @@ public class MasterMindBase {
                 finis=true;
                 resultat=nbressai;
             }
-            else if (passeCodeSuivantLexicoCompat(cod1,codes,reps, nbressai,tabCouleurs.length)){
+            else if (!passeCodeSuivantLexicoCompat(cod1,codes,reps, nbressai,tabCouleurs.length)){
                 finis=true;
             }
         }
