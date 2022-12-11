@@ -272,33 +272,20 @@ public class MasterMindBase {
      Par exemple, si cod1 = (1,0,2,0) et cod2 = (0,1,0,0) la fonction retourne (1,2) : 1 b
     */
     public static int[] nbBienMalPlaces(int[] cod1,int[] cod2, int nbCouleurs){
-        int [] nbBMplace={0,0};
-        int [] copie1=copieTab(cod1);
-        int i=0;
-        while (i<copie1.length) {
-            if (copie1[i] == cod2[i]) {
-                nbBMplace[0]++;
-                copie1[i]=nbCouleurs;
+        int [] rep={0,0};
+        for (int i=0;i<cod1.length;i++){
+            if (cod1[i]==cod2[i]){
+                rep[0]++;
             }
-            i++;
-        }
-        int j=0;
-        i=0;
-        while (nbBMplace[0]+nbBMplace[1]<nbCommuns(cod1,cod2,nbCouleurs) || nbBMplace[0]!=nbBienPlaces(cod1,cod2)){
-            if (j<copie1.length){
-                j++;
-            }
-            if (copie1[i]==cod2[j]){
-                nbBMplace[1]++;
-                i++;
-                j=0;
-            }
-            if (j>=copie1.length){
-                i++;
-                j=0;
+            else {
+                for (int j=0;j<cod1.length;j++){
+                    if (cod1[i]==cod2[j]){
+                        rep[1]++;
+                    }
+                }
             }
         }
-        return nbBMplace;
+        return rep;
     }
 
     //____________________________________________________________
