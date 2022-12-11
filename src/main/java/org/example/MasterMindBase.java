@@ -508,12 +508,11 @@ public class MasterMindBase {
         System.out.print("Début de la manche n°"+numManche+" \n");
         while (!finis){
             System.out.print(entiersVersMot(cod1,tabCouleurs)+ "\n");
-            affichePlateau(codes,reps,nbressai,tabCouleurs);
             reponseactuelle=reponseHumain(lgCode);
-            reps[0][nbressai]=reponseactuelle[0];
-            reps[1][nbressai]=reponseactuelle[1];
-
-            if (nbressai>nbEssaisMax || reponseactuelle[0]==lgCode) {
+            reps[nbressai][0]=reponseactuelle[0];
+            reps[nbressai][1]=reponseactuelle[1];
+            affichePlateau(codes,reps,nbressai,tabCouleurs);
+            if (nbressai>=nbEssaisMax || reponseactuelle[0]==lgCode) {
                 finis=true;
                 resultat=nbressai;
             }
@@ -615,7 +614,7 @@ public class MasterMindBase {
         for (int i = 0; i < cod.length; i++) {
             System.out.print("L"+(i+1)+": ");
             for (int j = 0; j < cod[0].length; j++) {
-                System.out.print(tabCouleurs[cod[i][j]] + "\t"); //jai enlevé le -1
+                System.out.print(tabCouleurs[cod[i][j]]-1 + "\t"); //jai enlevé le -1
             }
             System.out.println();
         }
