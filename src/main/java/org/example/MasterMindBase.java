@@ -625,7 +625,8 @@ public class MasterMindBase {
         int[] codecacher = motVersEntiers(codMot, tabCouleurs);
         while (i < nbCoups && !erreur) {
             if (!(nbBienMalPlaces(cod[i],codecacher,tabCouleurs.length)==rep[i])){
-                System.out.print("c'est une erreur ");
+                System.out.print("Il y a eu une erreur dans les réponses données");
+                erreur=true;
             }
             else {
                 i++;
