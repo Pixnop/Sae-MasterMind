@@ -137,14 +137,13 @@ public class MasterMindBase {
     public static boolean codeCorrect(String codMot, int lgCode, char[] tabCouleurs){ //todo : pas besoin de split en regex, AABBCC par exemple
         int verif=0;
         boolean correct=true;
-        for (int i=0; i<lgCode; i++){  //incrémente verif de 1 chaque fois que le caractère est présent dans string
-            char valeurChar= codMot.charAt(i); //todo erreur ici
-            System.out.print(valeurChar);
+        for (int i=0; i<codMot.length(); i++){  //incrémente verif de 1 chaque fois que le caractère est présent dans string
+            char valeurChar= codMot.charAt(i);
             if (estPresent(tabCouleurs,valeurChar)) {
                 verif++;
             }
         }
-        if (verif!=lgCode-1){ //si verif n'a pas la meme valeur de la longueur du code, c'est faux
+        if (verif!=lgCode){ //si verif n'a pas la meme valeur de la longueur du code, c'est faux
             System.out.print("les éléments de votre code ne sont pas tous présents dans les possibilitées \n");
             correct=false;
         }
@@ -185,11 +184,12 @@ public class MasterMindBase {
 	résultat : le code saisi sous forme de tableau d'entiers
     */
     public static int[] propositionCodeHumain(int nbCoups, int lgCode, char[] tabCouleurs){ // todo : tester
-        Scanner scanner=new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         boolean codebon=false;
-        System.out.print("Saisissez votre proposition n°"+nbCoups+1  +" (sous forme de mot séparés par une virgule) : \n ");
+        System.out.print("Saisissez votre proposition n°"+ (nbCoups+1)  +" (sous forme de mot séparés par une virgule) : \n ");
         String reponse = scanner.next();
-        codebon=codeCorrect(reponse,lgCode,tabCouleurs);
+        reponse = reponse.replaceAll(",", "");
+        codebon = codeCorrect(reponse,lgCode,tabCouleurs);
         while (!codebon){
             System.out.print("Réécrivez votre code  (sous forme de mot séparés par une virgule) : ");
             reponse = scanner.next();
@@ -274,15 +274,15 @@ public class MasterMindBase {
         int [] rep={0,0};
         int [] cod2bis = copieTab(cod2);
         for (int i=0;i<cod1.length-1;i++){ //-1 rajouté
-            if (cod1[i]==cod2bis[i]){
+            if (cod1[i]==cod2[i]){
                 rep[0]++;
-                cod2bis[i]=nbCouleurs;
+                cod2[i]=nbCouleurs;
             }
             else {
                 for (int j=0;j<cod1.length-1;j++){
-                    if (cod1[i]==cod2bis[j]){
+                    if (cod1[i]==cod2[j]){
                         rep[1]++;
-                        cod2bis[j]=nbCouleurs;
+                        cod2[j]=nbCouleurs;
                     }
                 }
             }
@@ -311,13 +311,14 @@ public class MasterMindBase {
         int i;
         System.out.println("Vous êtes à la manche : "+numManche);
         for (i=0;i<nbEssaisMax || !trouver;i++){
+            System.out.println(Arrays.toString(code));
             reponse=nbBienMalPlaces(propositionCodeHumain(i,lgCode,tabCouleurs),code,tabCouleurs.length);  //récupère la réponse de l'utilisateur
             if (reponse[0] == lgCode){
                 System.out.print("bien joué le code était bien : " + entiersVersMot(code, tabCouleurs));
                 trouver=true;
             }
             else {
-                System.out.print("Il y a " +reponse[0]+ "bien placés et "+ reponse[1]+ "mal placés \n");
+                System.out.print("Il y a " +reponse[0]+ " bien placés et "+ reponse[1]+ " mal placés \n");
             }
         }
         return i;
