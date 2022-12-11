@@ -520,12 +520,14 @@ public class MasterMindBase {
         int [] reponseactuelle;
         int [][] reps = new int [2][nbEssaisMax];
         System.out.print("Début de la manche n°"+numManche+" \n");
-        do {
+        while (!finis) {
             System.out.print(entiersVersMot(cod1,tabCouleurs)+ "\n");
             reponseactuelle=reponseHumain(lgCode);
             reps[0][nbressai]=reponseactuelle[0]; //t'avais inversé [0][nbressai]
             reps[1][nbressai]=reponseactuelle[1]; //t'avais aussi inversé
             affichePlateau(codes,reps,nbressai,tabCouleurs);
+
+            nbressai++;
             if (nbressai>=nbEssaisMax || reponseactuelle[0]==lgCode) {
                 finis=true;
                 resultat=nbressai;
@@ -535,8 +537,7 @@ public class MasterMindBase {
                 finis=true;
                 resultat=0;
             }
-            nbressai++;
-        } while (!finis);
+        }
         return resultat;
     }
 
