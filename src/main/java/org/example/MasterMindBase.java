@@ -427,7 +427,7 @@ public class MasterMindBase {
     public static boolean passeCodeSuivantLexico(int[] cod1, int  nbCouleurs) { //fait
         int i = 1;
         boolean existe=false;
-        while (i<cod1.length && !existe) {
+        while (i<cod1.length+1 && !existe) {
             if (cod1[cod1.length-i] < (nbCouleurs - 1)) {
                 cod1[cod1.length-i]++;
                 existe=true;
@@ -436,17 +436,9 @@ public class MasterMindBase {
             }
             i++;
         }
+        System.out.print(cod1[0]+ "" + cod1[1] +  "" +cod1[2] +  "" +cod1[3]);    // ---------------------------------test --------------------
         return existe;
     }
-        /*for (int i = 1;i < cod1.length+1 ;i++ ) {
-            if ((cod1[cod1.length-i]) < (nbCouleurs-1)) {
-                cod1[cod1.length-i] += 1;
-                return true;
-            }
-            else {
-                cod1[cod1.length-i] = 0;
-            }
-        }*/
 
     //___________________________________________________________________
 
@@ -488,14 +480,6 @@ public class MasterMindBase {
                 resultat=true;
             }
         }
-        /*do{
-            if (passeCodeSuivantLexico(cod1,nbCouleurs)){
-                resultat=true;
-            }
-            else {
-                resultat=false;
-            }
-        }while (!estCompat(cod1, cod, rep,nbCoups,nbCouleurs)&&resultat);*/
         return resultat;
     }
 
@@ -517,31 +501,27 @@ public class MasterMindBase {
         int nbressai=0;
         int resultat=0;
         int [] cod1= initTab(lgCode,0);
-        int [][] codes= new int[lgCode][nbEssaisMax];
+        int [][] codes= new int[nbEssaisMax][lgCode];
         int [] reponseactuelle;
-        int [][] reps = new int [2][nbEssaisMax];
+        int [][] reps = new int [nbEssaisMax][2];
         System.out.print("Début de la manche n°"+numManche+" \n");
         while (!finis) {
             System.out.print(entiersVersMot(cod1,tabCouleurs)+ "\n");
+            codes[nbressai]=copieTab(cod1);
             reponseactuelle=reponseHumain(lgCode);
-            reps[0][nbressai]=reponseactuelle[0]; //t'avais inversé [0][nbressai]
-            reps[1][nbressai]=reponseactuelle[1]; //t'avais aussi inversé
-            affichePlateau(codes,reps,nbressai,tabCouleurs);
-
+            reps[nbressai][0]=reponseactuelle[0];
+            reps[nbressai][1]=reponseactuelle[1];
             nbressai++;
-            if (nbressai==nbEssaisMax || reponseactuelle[0]==lgCode) {
+            if (nbressai==nbEssaisMax || reps[nbressai][0]==lgCode) {
                 finis=true;
                 resultat=nbressai;
             }
             else if (passeCodeSuivantLexicoCompat(cod1,codes,reps, nbressai,tabCouleurs.length)){
-                System.out.print("ligne 520 problème");
                 finis=true;
-                resultat=0;
             }
         }
         return resultat;
     }
-
     //___________________________________________________________________
 
     //.........................................................................
@@ -645,7 +625,7 @@ public class MasterMindBase {
         int[] codecacher = motVersEntiers(codMot, tabCouleurs);
         while (i < nbCoups && !erreur) {
             if (!(nbBienMalPlaces(cod[i],codecacher,tabCouleurs.length)==rep[i])){
-                erreur=true;
+                System.out.print("c'est une erreur ");
             }
             else {
                 i++;
