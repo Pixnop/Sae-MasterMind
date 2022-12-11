@@ -279,8 +279,8 @@ public class MasterMindBase {
             if (copie1[i] == cod2[i]) {
                 nbBMplace[0]++;
                 copie1[i]=nbCouleurs;
-                i++;
             }
+            i++;
         }
         int j=0;
         while (nbBMplace[0]+nbBMplace[1]<nbCommuns(cod1,cod2,nbCouleurs)){
