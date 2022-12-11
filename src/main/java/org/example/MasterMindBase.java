@@ -686,10 +686,12 @@ public class MasterMindBase {
         }
         while (numManche<=numManchemax) {
             if ((codeurdecodeur+numManche)%2==0){
+                System.out.println("_______________________________MANCHE ORDI_______________________________");
                 resultatmancheactuelle=mancheOrdinateur(lgCode,tabCouleurs,numManche,nbEssaisMax);
                 resultatpartie[0]+=resultatmancheactuelle;
             }
             else{
+                System.out.println("_______________________________MANCHE HUMAIN_______________________________");
                 resultatmancheactuelle=mancheHumain(lgCode,tabCouleurs,numManche,nbEssaisMax);
                 resultatpartie[1]+=resultatmancheactuelle;
             }
