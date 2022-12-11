@@ -499,15 +499,15 @@ public class MasterMindBase {
     */
     public static int mancheOrdinateur(int lgCode,char[] tabCouleurs, int numManche, int nbEssaisMax) { //fait
         boolean finis=false;
-        int nbressai=0;
+        int nbressai=1;
         int resultat=0;
         int [] cod1= initTab(lgCode,0);
         int [][] codes= new int[lgCode][nbEssaisMax];
         int [] reponseactuelle=new int [2];
         int [][] reps = new int [2][nbEssaisMax];
         System.out.print("Début de la manche n°"+numManche+" \n");
-        System.out.print(entiersVersMot(cod1,tabCouleurs)+ "\n");
         while (!finis){
+            System.out.print(entiersVersMot(cod1,tabCouleurs)+ "\n");
             reponseactuelle=reponseHumain(lgCode);
             reps[0][nbressai]=reponseactuelle[0];
             reps[1][nbressai]=reponseactuelle[1];
@@ -516,7 +516,8 @@ public class MasterMindBase {
                 finis=true;
                 resultat=nbressai;
             }
-            else if (!passeCodeSuivantLexicoCompat(cod1,codes,reps, nbressai,tabCouleurs.length)){
+            else if (passeCodeSuivantLexicoCompat(cod1,codes,reps, nbressai,tabCouleurs.length)){
+                System.out.print("ligne 520 problème");
                 finis=true;
                 resultat=0;
             }
@@ -683,7 +684,7 @@ public class MasterMindBase {
         lgCode = saisirEntierPositif();
         System.out.println("_______________________________CHOIX JEU_______________________________");
 
-        System.out.print("Voulez vous être le codificateur (1) ou le décodeur (2) : ");
+        System.out.print("Voulez vous être le codeur (1) ou le décodeur (2) : ");
         int codeurdecodeur = saisirEntierPositif();
         if (codeurdecodeur!=1 && codeurdecodeur!=2){
             System.out.print("Saisissez 1 si vous souhaitez commencer codificateur ou 2 si vous souhaitez commencer décodeur");
