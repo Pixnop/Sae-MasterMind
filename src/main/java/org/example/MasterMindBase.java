@@ -559,7 +559,7 @@ public class MasterMindBase {
     public static int saisirEntierPairPositif(){ //fait
         int result = saisirEntierPositif();
         if (result % 2 != 0) {
-            System.out.println("Le nombre saisie est impair.");
+            System.out.print("Le nombre saisie est impair. Veuillez saisir un nombre pair : ");
             saisirEntierPairPositif();
             }
         return result;
