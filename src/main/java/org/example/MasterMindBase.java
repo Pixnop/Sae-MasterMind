@@ -506,8 +506,8 @@ public class MasterMindBase {
         int [][] codes= new int[lgCode][nbEssaisMax];
         int [] reponseactuelle=new int [2];
         int [][] reps = new int [2][nbEssaisMax];
-
-
+        System.out.print("Début de la manche n°"+numManche+" \n");
+        System.out.print(cod1 +"\n");
         while (!finis){
             nbressai++;
             reponseactuelle=reponseHumain(lgCode);
@@ -662,36 +662,36 @@ public class MasterMindBase {
      Toute donnée incorrecte doit être re-saisie jusqu'à ce qu'elle soit correcte.
      */
     public static void main(String[] args){
-        int lgCode, numManche, nbEssaisMax;
+        int lgCode, numManchemax, nbEssaisMax;
         char[] tabCouleurs;
         Scanner scanner=new Scanner(System.in);
         System.out.println("_________________________INITIALISATION PARTIE_________________________");
         System.out.println("saisie des couleurs");
         tabCouleurs = saisirCouleurs();
         System.out.print("saisie nombre de manche : ");
-        numManche = saisirEntierPairPositif();
+        numManchemax = saisirEntierPairPositif();
         System.out.print("saisie nombre d'essais maximum : ");
         nbEssaisMax = saisirEntierPositif();
         System.out.print("saisie nombre de ligne : "); //TODO faire en sorte que le nombre de ligne sois - ou + que nombre de couleur
         lgCode = saisirEntierPositif();
         System.out.println("_______________________________CHOIX JEU_______________________________");
-        System.out.print("Voulez vous est de codificateur (1) ou le décodeur (2) : ");
+        System.out.print("Voulez vous être le codificateur (1) ou le décodeur (2) : ");
         int rep = scanner.nextInt();
         if(rep==1){
-            System.out.print("Vous avez choisi codificateur, es bien ce que vous voulez ? (y/n) : ");
+            System.out.print("Vous avez choisi codificateur, est-ce bien ce que vous voulez ? (y/n) : ");
             String verif = scanner.next();
             if(Objects.equals(verif, "y")){
                 System.out.println("_____________________________DEBUT PARTIE_____________________________");
-                mancheOrdinateur(lgCode,tabCouleurs,numManche, nbEssaisMax);
+                mancheOrdinateur(lgCode,tabCouleurs,numManchemax, nbEssaisMax);
             }else {
                 main(args);
             }
         }else if (rep==2){
-            System.out.print("Vous avez choisi décodeur, es bien ce que vous voulez ? (y/n) : ");
+            System.out.print("Vous avez choisi décodeur, est-ce bien ce que vous voulez ? (y/n) : ");
             String verif = scanner.next();
             if(Objects.equals(verif, "y")){
                 System.out.println("_____________________________DEBUT PARTIE_____________________________");
-                mancheHumain(lgCode,tabCouleurs,numManche, nbEssaisMax);
+                mancheHumain(lgCode,tabCouleurs,numManchemax, nbEssaisMax);
             }else {
                 main(args);
             }
