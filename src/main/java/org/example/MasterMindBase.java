@@ -698,9 +698,16 @@ public class MasterMindBase {
                 resultatpartie[1]+=resultatmancheactuelle;
             }
             numManche++;
-
         }
-
+        if (resultatpartie[0]<resultatpartie[1]){
+            System.out.println("L'ordinateur vous a battu une fois de plus MOUAHAHAHAHAH");
+        }
+        else if (resultatpartie[0]<resultatpartie[1]){
+            System.out.println("Bravo, vous êtes officiellement irremplaçable, votre supériorité ne fait aucun doute");
+        }
+        else {
+            System.out.print("EGALITEEE ? MAIS NON !? Voulez vous faire une manche supplémentaire ?");
+        }
 
 
 
