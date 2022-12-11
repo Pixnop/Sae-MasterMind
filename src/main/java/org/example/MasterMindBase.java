@@ -423,16 +423,20 @@ public class MasterMindBase {
 
     public static boolean passeCodeSuivantLexico(int[] cod1, int  nbCouleurs){ //fait
         boolean existe = false;
-        for (int i=cod1.length-1; i>0 && !existe;i--){
-            if (cod1[i] < nbCouleurs-1){
+        System.out.print(cod1[0] +""+ cod1[1] + "\n");  //-------------------------------- test ---------------------------------
+        int i=0;
+        while(cod1.length-i>0){
+            if (cod1[i]<(nbCouleurs-1)){
                 cod1[i]++;
                 existe=true;
             }
             else{
                 cod1[i]=0;
             }
+            i++;
         }
         existe=(cod1==initTab(cod1.length,0));
+        System.out.print(cod1[0] +""+ cod1[1] + "\n");  //-------------------------------- test ---------------------------------
         return existe;
     }
 
@@ -447,11 +451,12 @@ public class MasterMindBase {
      c'est-à-dire que si cod1 était le code secret, les réponses aux nbCoups premières
      propositions de cod seraient les nbCoups premières réponses de rep resp.
      */
-    public static boolean estCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs) {//TODO je comprend r
+    public static boolean estCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs) {
         boolean partielle = true;
-        for (int i = 0; i < nbCoups && partielle; i++) {
-                if (!(nbBienMalPlaces(cod1, cod[i], nbCouleurs) == rep[i])) {
+        for (int i = 0; i < nbCoups && partielle; i++) {  //remplacement nbcoups par cod.length
+                if (nbBienMalPlaces(cod1, cod[i], nbCouleurs) != rep[i]) {
                     partielle = false;
+                    System.out.print("TEST ligne 457 " + cod[i][0] );
             }
         }
         return partielle;
@@ -474,14 +479,13 @@ public class MasterMindBase {
 
 
     public static boolean passeCodeSuivantLexicoCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){ //fait //todo : à test
+        boolean resultat=true;
         do{
             if (!passeCodeSuivantLexico(cod1,nbCouleurs)){
-                return false;
-            }
-            else {
-                return true;
+                resultat=false;
             }
         }while (!estCompat(cod1, cod, rep,nbCoups,nbCouleurs));
+        return resultat;
     }
 
     //___________________________________________________________________
