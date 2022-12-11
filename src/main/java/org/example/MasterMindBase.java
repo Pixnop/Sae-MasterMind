@@ -628,13 +628,14 @@ public class MasterMindBase {
     action : affiche les erreurs d’incorrection ou d’incompatibilité
     */
     public static void afficheErreurs (String codMot, int [][] cod, int [][] rep, int nbCoups, int lgCode, char[] tabCouleurs) {
-        boolean erreur = true;
+        boolean erreur = false;
         int i = 0;
         int[] codecacher = motVersEntiers(codMot, tabCouleurs);
-        while (i < nbCoups) {
-            if (!estCompat(codecacher, cod, rep, nbCoups, tabCouleurs.length)) {
-                erreur = false;
-            } else {
+        while (i < nbCoups && !erreur) {
+            if (!(nbBienMalPlaces(cod[i],codecacher,tabCouleurs.length)==rep[i])){
+                erreur=true;
+            }
+            else {
                 i++;
             }
         }
