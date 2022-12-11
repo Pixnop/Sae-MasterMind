@@ -351,10 +351,10 @@ public class MasterMindBase {
     public static boolean repCorrecte(int[] rep, int lgCode){//fait
         boolean result = true;
         if (rep[0] < 0 || rep[1] < 0) {
-            System.out.println("rep[0] ou rep[1] est negatif");
+            System.out.println("l'une de tes valeurs est négative");
             result = false;
         } else if (rep[0] + rep[1] > lgCode) {
-            System.out.println("rep[0] + rep[1] est plus grand que lgCode");
+            System.out.println("ta quantité de bien et de mal placés est plus grand que la longueur du code ");
             result = false;
         } else {
             System.out.println("result: " + result);
@@ -425,10 +425,10 @@ public class MasterMindBase {
      */
 
     public static boolean passeCodeSuivantLexico(int[] cod1, int  nbCouleurs) { //fait
-        int i = 0;
-        while (cod1.length -(i+1) >= 0) {
-            if (cod1[i] < (nbCouleurs - 1)) {
-                cod1[i]++;
+        int i = 1;
+        while (i<cod1.length) {
+            if (cod1[cod1.length-i] < (nbCouleurs - 1)) {
+                cod1[cod1.length-i]++;
             } else {
                 cod1[i] = 0;
             }
