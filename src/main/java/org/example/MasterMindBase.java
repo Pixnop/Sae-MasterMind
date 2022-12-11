@@ -628,7 +628,16 @@ public class MasterMindBase {
     action : affiche les erreurs d’incorrection ou d’incompatibilité
     */
     public static void afficheErreurs (String codMot, int [][] cod, int [][] rep, int nbCoups, int lgCode, char[] tabCouleurs) {
-
+        boolean erreur = true;
+        int i = 0;
+        int[] codecacher = motVersEntiers(codMot, tabCouleurs);
+        while (i < nbCoups) {
+            if (!estCompat(codecacher, cod, rep, nbCoups, tabCouleurs.length)) {
+                erreur = false;
+            } else {
+                i++;
+            }
+        }
     }
     //todo : ajouter à mancheOrdi la possibilité si elle retourne 0 de afficheErreurs
 
