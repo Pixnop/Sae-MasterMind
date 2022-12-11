@@ -138,7 +138,7 @@ public class MasterMindBase {
         int verif=0;
         boolean correct=true;
         for (int i=0; i<lgCode; i++){  //incrémente verif de 1 chaque fois que le caractère est présent dans string
-            char valeurChar= codMot.charAt(i);
+            char valeurChar= codMot.charAt(i); //todo erreur ici
             System.out.print(valeurChar);
             if (estPresent(tabCouleurs,valeurChar)) {
                 verif++;
