@@ -452,14 +452,12 @@ public class MasterMindBase {
      propositions de cod seraient les nbCoups premières réponses de rep resp.
      */
     public static boolean estCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs) {
-        boolean partielle = true;
-        for (int i = 0; i < nbCoups && partielle; i++) {  //remplacement nbcoups par cod.length
+        for (int i = 0; i < nbCoups; i++) {  //remplacement nbcoups par cod.length
                 if (nbBienMalPlaces(cod1, cod[i], nbCouleurs) != rep[i]) {
-                    partielle = false;
-                    System.out.print("TEST ligne 457 " + cod[i][0] );
+                    return false;
             }
         }
-        return partielle;
+        return true;
     }
 
 
@@ -484,7 +482,7 @@ public class MasterMindBase {
             if (!passeCodeSuivantLexico(cod1,nbCouleurs)){
                 resultat=false;
             }
-        }while (!estCompat(cod1, cod, rep,nbCoups,nbCouleurs));
+        }while (!estCompat(cod1, cod, rep,nbCoups,nbCouleurs)&&resultat);
         return resultat;
     }
 
