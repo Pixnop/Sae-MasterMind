@@ -505,14 +505,14 @@ public class MasterMindBase {
         int resultat=0;
         int [] cod1= initTab(lgCode,0);
         int [][] codes= new int[lgCode][nbEssaisMax];
-        int [] reponseactuelle=new int [2];
+        int [] reponseactuelle;
         int [][] reps = new int [2][nbEssaisMax];
         System.out.print("Début de la manche n°"+numManche+" \n");
-        while (!finis){
+        do {
             System.out.print(entiersVersMot(cod1,tabCouleurs)+ "\n");
             reponseactuelle=reponseHumain(lgCode);
-            reps[nbressai][0]=reponseactuelle[0]; //TODO erreur ici aussi "Index 2 out of bounds for length 2"
-            reps[nbressai][1]=reponseactuelle[1];
+            reps[0][nbressai-1]=reponseactuelle[0]; //t'avais inversé [0][nbressai]
+            reps[1][nbressai-1]=reponseactuelle[1]; //t'avais aussi inversé
             affichePlateau(codes,reps,nbressai,tabCouleurs);
             if (nbressai>=nbEssaisMax || reponseactuelle[0]==lgCode) {
                 finis=true;
@@ -524,7 +524,7 @@ public class MasterMindBase {
                 resultat=0;
             }
             nbressai++;
-        }
+        } while (!finis);
         return resultat;
     }
 
