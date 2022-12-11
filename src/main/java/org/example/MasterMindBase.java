@@ -424,22 +424,28 @@ public class MasterMindBase {
      sinon met dans cod1 le code ne contenant que des "0" et retourne faux
      */
 
-    public static boolean passeCodeSuivantLexico(int[] cod1, int  nbCouleurs){ //fait
-        System.out.print(cod1[0] +""+ cod1[1] + "\n");  //-------------------------------- test ---------------------------------
-        int i=0;
-        while(cod1.length-i>0){
-            if (cod1[i]<(nbCouleurs-1)){
+    public static boolean passeCodeSuivantLexico(int[] cod1, int  nbCouleurs) { //fait
+        int i = 0;
+        while (cod1.length -(i+1) >= 0) {
+            if (cod1[i] < (nbCouleurs - 1)) {
                 cod1[i]++;
-            }
-            else{
-                cod1[i]=0;
+            } else {
+                cod1[i] = 0;
             }
             i++;
         }
-        boolean existe=(cod1==initTab(cod1.length,0));
-        System.out.print(cod1[0] +""+ cod1[1] + "\n");  //-------------------------------- test ---------------------------------
+        boolean existe = (cod1 == initTab(cod1.length, 0));
         return existe;
     }
+        /*for (int i = 1;i < cod1.length+1 ;i++ ) {
+            if ((cod1[cod1.length-i]) < (nbCouleurs-1)) {
+                cod1[cod1.length-i] += 1;
+                return true;
+            }
+            else {
+                cod1[cod1.length-i] = 0;
+            }
+        }*/
 
     //___________________________________________________________________
 
