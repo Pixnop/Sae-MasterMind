@@ -576,8 +576,12 @@ public class MasterMindBase {
         Scanner scanner = new Scanner(System.in);
         boolean verif = true;
         int nbCouleurs = 0;
-        System.out.print("nombre de couleur : ");
+        System.out.print("Saisissez le nombre de couleur souhaité (>3): ");
         nbCouleurs = saisirEntierPositif();
+        while (nbCouleurs<3){
+            System.out.print("Saisissez le nombre de couleur souhaité (>3): ");
+            nbCouleurs = saisirEntierPositif();
+        }
         char[] result = new char[nbCouleurs];
         String temp;
         for (int i = 0; i < nbCouleurs; ) {
@@ -670,7 +674,6 @@ public class MasterMindBase {
 
         Scanner scanner=new Scanner(System.in);
         System.out.println("_________________________INITIALISATION PARTIE_________________________");
-        System.out.println("Saisissez vos couleurs");
         tabCouleurs = saisirCouleurs();
         System.out.print("Nombre de manches, pair uniquement : ");
         numManchemax = saisirEntierPairPositif();
