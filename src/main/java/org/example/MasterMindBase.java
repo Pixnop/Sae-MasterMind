@@ -699,26 +699,31 @@ public class MasterMindBase {
             }
             numManche++;
         }
+        System.out.println("_______________________________FIN PARTIE_______________________________");
+
+
         if (resultatpartie[0]<resultatpartie[1]){
             System.out.println("L'ordinateur vous a battu une fois de plus MOUAHAHAHAHAH");
         }
-        else if (resultatpartie[0]<resultatpartie[1]){
+        else if (resultatpartie[0]>resultatpartie[1]){
             System.out.println("Bravo, vous êtes officiellement irremplaçable, votre supériorité ne fait aucun doute");
         }
         else {
-            System.out.print("EGALITEEE ? MAIS NON !? Voulez vous faire une manche supplémentaire ?");
+            System.out.print("EGALITEEE ? MAIS NON !? Vous vous êtes bien battu pour être au niveau d'une IA hyper performante !");
         }
 
-
-
-        System.out.print("Voulez vous rejouer ? (y/n) : ");
+        System.out.print("Voulez vous refaire une partie ? (y/n) : ");
         String again = scanner.next();
-        if(Objects.equals(again, "y")){
+
+        while (!again.equals("y") && !again.equals("n")){
+            System.out.print("Voulez vous refaire une partie ? (y/n) : ");
+            again = scanner.next();
+        }
+        if(again.equals("y")){
             main(args);
         }else {
-            System.out.println("fin de partie");
+            System.out.println("C'était une belle partie");
         }
-
     } // fin main
     //___________________________________________________________________
 
