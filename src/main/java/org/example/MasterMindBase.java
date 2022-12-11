@@ -283,7 +283,8 @@ public class MasterMindBase {
             i++;
         }
         int j=0;
-        while (nbBMplace[0]+nbBMplace[1]<nbCommuns(cod1,cod2,nbCouleurs)){
+        i=0;
+        while (nbBMplace[0]+nbBMplace[1]<nbCommuns(cod1,cod2,nbCouleurs) || nbBMplace[0]!=nbBienPlaces(cod1,cod2)){
             if (j<copie1.length){
                 j++;
             }
