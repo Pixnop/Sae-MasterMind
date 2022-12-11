@@ -506,9 +506,8 @@ public class MasterMindBase {
         int [] reponseactuelle=new int [2];
         int [][] reps = new int [2][nbEssaisMax];
         System.out.print("Début de la manche n°"+numManche+" \n");
-        System.out.print(entiersVersMot(cod1,tabCouleurs));
+        System.out.print(entiersVersMot(cod1,tabCouleurs)+ "\n");
         while (!finis){
-            nbressai++;
             reponseactuelle=reponseHumain(lgCode);
             reps[0][nbressai]=reponseactuelle[0];
             reps[1][nbressai]=reponseactuelle[1];
@@ -521,8 +520,8 @@ public class MasterMindBase {
                 finis=true;
                 resultat=0;
             }
+            nbressai++;
         }
-
         return resultat;
     }
 
