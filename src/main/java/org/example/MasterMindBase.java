@@ -528,7 +528,7 @@ public class MasterMindBase {
             affichePlateau(codes,reps,nbressai,tabCouleurs);
 
             nbressai++;
-            if (nbressai>=nbEssaisMax || reponseactuelle[0]==lgCode) {
+            if (nbressai==nbEssaisMax || reponseactuelle[0]==lgCode) {
                 finis=true;
                 resultat=nbressai;
             }
