@@ -436,7 +436,6 @@ public class MasterMindBase {
             }
             i++;
         }
-        System.out.print("fin lexico"+ existe);
         return existe;
     }
         /*for (int i = 1;i < cod1.length+1 ;i++ ) {
@@ -702,11 +701,23 @@ public class MasterMindBase {
                 System.out.println("_______________________________MANCHE ORDI_______________________________");
                 resultatmancheactuelle=mancheOrdinateur(lgCode,tabCouleurs,numManche,nbEssaisMax);
                 resultatpartie[0]+=resultatmancheactuelle;
+                if (resultatmancheactuelle>0 && resultatmancheactuelle<=nbEssaisMax){
+                    System.out.print("Une belle manche, bien joué !");
+                }
+                else {
+                    System.out.print("Vous ferez mieux la prochaine fois");
+                }
             }
             else{
                 System.out.println("_______________________________MANCHE HUMAIN_______________________________");
                 resultatmancheactuelle=mancheHumain(lgCode,tabCouleurs,numManche,nbEssaisMax);
                 resultatpartie[1]+=resultatmancheactuelle;
+                if (resultatmancheactuelle<=0 && resultatmancheactuelle>nbEssaisMax){
+                    System.out.print("Une belle victoire, bien joué !");
+                }
+                else {
+                    System.out.print("L'IA est incroyablement forte ! ");
+                }
             }
             numManche++;
         }
