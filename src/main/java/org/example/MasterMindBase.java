@@ -506,7 +506,7 @@ public class MasterMindBase {
         int [] reponseactuelle=new int [2];
         int [][] reps = new int [2][nbEssaisMax];
         System.out.print("Début de la manche n°"+numManche+" \n");
-        System.out.print(cod1 +"\n");
+        System.out.print(entiersVersMot(cod1,tabCouleurs));
         while (!finis){
             nbressai++;
             reponseactuelle=reponseHumain(lgCode);
@@ -591,7 +591,6 @@ public class MasterMindBase {
                 System.out.println("L'initiale de la couleur est en double (doit être unique) \n");
             }
         }
-        System.out.println(result);
         return result;
     }
     //___________________________________________________________________
