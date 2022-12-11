@@ -611,27 +611,8 @@ public class MasterMindBase {
      */
     public static void affichePlateau(int [][] cod, int [][] rep, int nbCoups, char[] tabCouleurs){
         System.out.println("nombre de coups : " + nbCoups);
-        for (int i = 0; i < cod.length; i++) {
-            System.out.print("L"+(i+1)+": ");
-            for (int j = 0; j < cod[0].length; j++) {
-                System.out.print(tabCouleurs[cod[i][j]]-1 + "\t"); //jai enlevé le -1
-            }
-            System.out.println();
-        }
-        for (int j = 0; j < cod[0].length+1; j++) {
-            System.out.print("--\t");
-        }
-        System.out.println();
-        for (int i = 0; i < rep.length; i++) {
-            if(i==0){
-                System.out.print("BP : ");
-            }else{System.out.print("MP : ");}
-            for (int j = 0; j < rep[0].length; j++) {
-                System.out.print(rep[i][j] + "\t");
-            }
-            System.out.println();
-        }
-
+        System.out.println(Arrays.deepToString(cod));
+        System.out.println(Arrays.deepToString(rep));
     }
 
 
@@ -666,6 +647,7 @@ public class MasterMindBase {
      Toute donnée incorrecte doit être re-saisie jusqu'à ce qu'elle soit correcte.
      */
     public static void main(String[] args){
+
         int lgCode,numManchemax,nbEssaisMax;
         char[] tabCouleurs;
         int numManche=1;
