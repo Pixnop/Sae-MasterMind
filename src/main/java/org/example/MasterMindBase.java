@@ -463,10 +463,17 @@ public class MasterMindBase {
      c'est-à-dire que si cod1 était le code secret, les réponses aux nbCoups premières
      propositions de cod seraient les nbCoups premières réponses de rep resp.
      */
-    public static boolean estCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){//TODO je comprend r
-
-        return true;
+    public static boolean estCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs) {//TODO je comprend r
+        boolean partielle = true;
+        for (int i = 0; i < nbCoups && partielle; i++) {
+                if (!(nbBienMalPlaces(cod1, cod[i], nbCouleurs) == rep[i])) {
+                    partielle = false;
+            }
+        }
+        return partielle;
     }
+
+
 
     //___________________________________________________________________
 
